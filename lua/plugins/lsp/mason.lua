@@ -14,7 +14,6 @@ return {
 
         vim.diagnostic.config({
             virtual_text = false,
-            signs = true,
             underline = true,
             float = {
                 focusable = false,
@@ -23,6 +22,12 @@ return {
                 source = 'always',
                 header = '',
                 prefix = '',
+            },
+            signs = {
+                text = {
+                    [vim.diagnostic.severity.ERROR] = '>>',
+                    [vim.diagnostic.severity.WARN] = '>',
+                },
             },
         })
     end,

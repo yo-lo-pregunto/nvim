@@ -3,4 +3,4 @@ require 'config.keymaps'
 require 'config.autocommands'
 require 'config.lazy'
 
-vim.cmd.colorscheme('material-deep-ocean')
+-- vim.cmd.colorscheme('catppuccin-frappe')

@@ -3,8 +3,19 @@ return {
     {
         'linux-cultist/venv-selector.nvim',
         dependencies = { 'neovim/nvim-lspconfig', 'nvim-telescope/telescope.nvim', },
+        branch = "regexp",  -- This is the regexp branch, use this for the new version
         opts = {
             anaconda_envs_path = "/Users/yo-lo-pregunto/miniconda3/envs",
+            settings = {
+                search = {
+                    anaconda_envs = {
+                        command = 'fd bin/python$ ~/miniconda3/envs --full-path --color never -E /proc', -- change path here to your anaconda envs
+                    },
+                    anaconda_base = {
+                        command = 'fd /python$ ~/miniconda3/bin --full-path --color never -E /proc', -- change path here to your anaconda base
+                    },
+                },
+            },
         },
         ft = { "python", "quarto" },
     },
@@ -12,8 +23,8 @@ return {
     {
         'cdelledonne/vim-cmake',
         config = function ()
-            vim.g["cmake_link_compile_commands"] = 1
-            vim.g["cmake_default_config"] = ".nvim"
+            -- vim.g["cmake_link_compile_commands"] = 1
+            vim.g["cmake_default_config"] = "build-nvim"
         end,
         -- keys = {
         --     { "<leader>cg", "<cmd>CMakeGenerate<CR>", desc = "Generate" },

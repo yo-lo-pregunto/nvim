@@ -71,12 +71,6 @@ return {
                 { name = "buffer" }, -- text within current buffer
                 { name = "path" }, -- file system paths
                 { name = "vimtex" }, -- file system paths
-                { name = "spell", keyword_length = 4, option = {
-                    keep_all_entries = false,
-                    enable_in_contex = function ()
-                        return true
-                    end
-                }},
                 { name = 'pandoc_references' },
                 {
                     name = "latex_symbols",
@@ -84,6 +78,12 @@ return {
                         strategy = 0, -- mixed
                     },
                 },
+                { name = "spell", keyword_length = 4, option = {
+                    keep_all_entries = false,
+                    enable_in_contex = function ()
+                        return true
+                    end
+                }},
                 {
                     name = 'emoji',
                 },
