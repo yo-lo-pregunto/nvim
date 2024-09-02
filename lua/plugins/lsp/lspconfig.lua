@@ -99,6 +99,9 @@ return {
                 if server_name == 'pyright' then
                     capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
                 end
+                if server_name == 'ltex' then
+                    return
+                end
                 servers[server_name].capabilities = capabilities
                 servers[server_name].handlers = handlers
                 require('lspconfig')[server_name].setup(servers[server_name])
