@@ -65,28 +65,22 @@ return {
         event = "VeryLazy",
         opts = {
             plugins = { spelling = true },
-            defaults = {
-                mode = { "n", "v" },
-                ["g"] = { name = "Goto" },
-                ["]"] = { name = "Next" },
-                ["["] = { name = "Prev" },
-                ["gs"] = { name = "Sorround", _ = 'which_key_ignore' },
-                ["<leader>g"] = { name = "Git", _ = 'which_key_ignore' },
-                ["<leader>l"] = { name = "Lsp", _ = 'which_key_ignore' },
-                ["<leader>s"] = { name = "Search", _ = 'which_key_ignore' },
-                ["<leader>h"] = { name = "Harpoon", _ = 'which_key_ignore' },
-                ["<leader>n"] = { name = "Node", _ = 'which_key_ignore' },
-                ["<leader>o"] = { name = "Open", _ = 'which_key_ignore' },
-                ["<leader>b"] = { name = "Buffer", _ = 'which_key_ignore' },
-                ["<leader>;"] = { name = "Local Maps", _ = 'which_key_ignore' },
-            },
         },
         config = function(_, opts)
             vim.opt.timeout = true
             vim.opt.timeoutlen = 300
             local wk = require("which-key")
             wk.setup(opts)
-            wk.register(opts.defaults)
+            wk.add({
+                { "<leader>g", group="Git" },
+                { "<leader>l", group = "Lsp" },
+                { "<leader>s", group = "Search" },
+                { "<leader>h", group = "Harpoon" },
+                { "<leader>n", group = "Node" },
+                { "<leader>o", group = "Open" },
+                { "<leader>b", group = "Buffer" },
+                { "<leader>;", group = "Local Maps" },
+            })
         end,
     },
     -- Harpoon
