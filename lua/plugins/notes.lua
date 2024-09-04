@@ -24,19 +24,20 @@ return {
                         config = {
                             workspaces = {
                                 notes = "~/Neorg/notes",
+                                journal = "~/Neorg/journal",
                             },
                             default_workspace = "notes",
                         },
-                        ["core.completion"] = { config = { engine = "nvim-cmp", name = "[Norg]" } },
-                        ["core.integrations.nvim-cmp"] = {},
                     },
+                    ["core.completion"] = { config = { engine = "nvim-cmp", name = "[Norg]" } },
+                    ["core.integrations.nvim-cmp"] = {},
                     ["core.summary"] = {},
                     ["core.journal"] = {
                         config = {
-                            journal_folder = "../journal",
+                            journal_folder = ".",
                             strategy = "flat",
-                        }
-
+                            workspace = "journal",
+                        },
                     },
                     ["core.esupports.metagen"] = {},
                     ["core.export"] = {},
