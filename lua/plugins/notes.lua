@@ -34,7 +34,7 @@ return {
                     ["core.summary"] = {},
                     ["core.journal"] = {
                         config = {
-                            journal_folder = ".",
+                            journal_folder = "",
                             strategy = "flat",
                             workspace = "journal",
                         },

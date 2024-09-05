@@ -70,6 +70,7 @@ return {
                 { name = "luasnip" }, -- snippets
                 { name = "buffer" }, -- text within current buffer
                 { name = "path" }, -- file system paths
+                { name = "neorg" },
                 { name = "vimtex" }, -- file system paths
                 { name = 'pandoc_references' },
                 {
