@@ -1,15 +1,15 @@
 return {
   {
-    "lewis6991/gitsigns.nvim",
-    dependencies = { "NeogitOrg/neogit" },
+    'lewis6991/gitsigns.nvim',
+    dependencies = { 'NeogitOrg/neogit' },
     opts = {
       signs = {
-        add          = { text = '▏' },
-        change       = { text = '▏' },
-        delete       = { text = '▏' },
-        topdelete    = { text = '▏' },
+        add = { text = '▏' },
+        change = { text = '▏' },
+        delete = { text = '▏' },
+        topdelete = { text = '▏' },
         changedelete = { text = '▏' },
-        untracked    = { text = '┆' },
+        untracked = { text = '┆' },
       },
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
@@ -32,7 +32,6 @@ return {
         map("n", "<leader>gd", gs.diffthis, "Diff This")
         map("n", "<leader>gD", function() gs.diffthis("~") end, "Diff This ~")
       end,
-
     },
-  }
+  },
 }

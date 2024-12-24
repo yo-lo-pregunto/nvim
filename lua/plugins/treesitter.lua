@@ -4,7 +4,7 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    event = { "VeryLazy", "BufReadPre" },
+    event = { 'VeryLazy', 'BufReadPre' },
     opts = {
       auto_install = true,
       ensure_installed = {
@@ -21,7 +21,7 @@ return {
       },
       highlight = {
         enable = true,
-        disable = { 'latex', },
+        disable = { 'latex' },
       },
       indent = {
         enable = true,
@@ -37,7 +37,7 @@ return {
       },
     },
     config = function(_, opts)
-      require 'nvim-treesitter.configs'.setup(opts)
-    end
-  }
+      require('nvim-treesitter.configs').setup(opts)
+    end,
+  },
 }

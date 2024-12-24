@@ -1,9 +1,9 @@
-local langs = require("langs")
+local langs = require 'langs'
 
 local function get_formatters()
   local t = {}
   for key, value in pairs(langs) do
-    if key ~= "servers" and key ~= "formats" then
+    if key ~= 'servers' and key ~= 'formats' then
       t[key] = value.format
     end
   end
@@ -12,8 +12,8 @@ end
 
 return {
   {
-    "stevearc/conform.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    'stevearc/conform.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
@@ -23,9 +23,9 @@ return {
         local disable_filetypes = { c = true, cpp = true }
         local lsp_format_opt
         if disable_filetypes[vim.bo[bufnr].filetype] then
-          lsp_format_opt = "never"
+          lsp_format_opt = 'never'
         else
-          lsp_format_opt = "fallback"
+          lsp_format_opt = 'fallback'
         end
         return {
           timeout_ms = 500,

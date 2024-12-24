@@ -1,28 +1,28 @@
 return {
   {
-    "lukas-reineke/indent-blankline.nvim",
+    'lukas-reineke/indent-blankline.nvim',
     enabled = true,
-    event = "VeryLazy",
+    event = 'VeryLazy',
     opts = {
       indent = {
-        char = "▏",
-        tab_char = "▏",
+        char = '▏',
+        tab_char = '▏',
       },
       scope = { enabled = false },
       exclude = {
         filetypes = {
-          "help",
-          "Trouble",
-          "neo-tree",
-          "lazy",
-          "mason",
-          "notify",
-          "toggleterm",
-          "lazyterm",
-          "dashboard",
+          'help',
+          'Trouble',
+          'neo-tree',
+          'lazy',
+          'mason',
+          'notify',
+          'toggleterm',
+          'lazyterm',
+          'dashboard',
         },
       },
     },
-    main = "ibl",
+    main = 'ibl',
   },
 }

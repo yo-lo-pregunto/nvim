@@ -8,13 +8,13 @@ local function add_themes(themes)
   return t
 end
 
-return add_themes({
-  "tiagovla/tokyodark.nvim",
-  "folke/tokyonight.nvim",
+return add_themes {
+  'tiagovla/tokyodark.nvim',
+  'folke/tokyonight.nvim',
   'AlexvZyl/nordic.nvim',
   'projekt0n/github-nvim-theme',
-  "bluz71/vim-moonfly-colors",
+  'bluz71/vim-moonfly-colors',
   'jacoborus/tender.vim',
-  "EdenEast/nightfox.nvim",
-  "rose-pine/neovim",
-})
+  'EdenEast/nightfox.nvim',
+  'rose-pine/neovim',
+}

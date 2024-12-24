@@ -19,10 +19,10 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
-      require('mini.indentscope').setup({
-        symbol = "▏",
+      require('mini.indentscope').setup {
+        symbol = '▏',
         options = { try_as_border = true },
-      })
+      }
 
       require('mini.pairs').setup()
 
@@ -30,24 +30,23 @@ return {
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
     init = function()
-      vim.api.nvim_create_autocmd("FileType", {
+      vim.api.nvim_create_autocmd('FileType', {
         pattern = {
-          "help",
-          "neo-tree",
-          "dashboard",
-          "lazy",
-          "mason",
-          "notify",
-          "toggleterm",
-          "lazyterm",
-          "dashboard",
-          "quarto",
+          'help',
+          'neo-tree',
+          'dashboard',
+          'lazy',
+          'mason',
+          'notify',
+          'toggleterm',
+          'lazyterm',
+          'dashboard',
+          'quarto',
         },
         callback = function()
           vim.b.miniindentscope_disable = true
         end,
       })
     end,
-
-  }
+  },
 }

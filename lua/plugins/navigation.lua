@@ -9,6 +9,6 @@ return {
       vim.keymap.set('t', '<C-j>', '<C-\\><C-N>:TmuxNavigateDown<CR>', { silent = true })
       vim.keymap.set('t', '<C-k>', '<C-\\><C-N>:TmuxNavigateUp<CR>', { silent = true })
       vim.keymap.set('t', '<C-l>', '<C-\\><C-N>:TmuxNavigateRight<CR>', { silent = true })
-    end
-  }
+    end,
+  },
 }

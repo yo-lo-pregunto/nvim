@@ -6,7 +6,7 @@ return {
     dependencies = 'rafamadriz/friendly-snippets',
 
     version = '*',
-    event = "InsertEnter",
+    event = 'InsertEnter',
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
@@ -17,7 +17,7 @@ return {
       keymap = { preset = 'default', cmdline = { preset = 'enter' } },
 
       appearance = {
-        nerd_font_variant = 'mono'
+        nerd_font_variant = 'mono',
       },
 
       sources = {
@@ -30,11 +30,11 @@ return {
         list = {
           selection = function(ctx)
             return ctx.mode == 'cmdline' and 'auto_insert' or 'preselect'
-          end
-        }
+          end,
+        },
       },
       signature = { enabled = true, window = { border = 'single' } },
     },
-    opts_extend = { "sources.default" },
+    opts_extend = { 'sources.default' },
   },
 }
