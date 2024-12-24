@@ -1,0 +1,5 @@
+require 'core.autocommands'
+require 'core.debug'
+require 'core.opt'
+require 'core.keys'
+require 'core.lazy'
