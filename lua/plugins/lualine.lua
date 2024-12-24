@@ -3,6 +3,22 @@
 local function maximize_status()
   return vim.t["maximized"] and " " or ""
 end
+
+local function shorter_name(filename)
+  return filename:gsub("/bin/python", ""):match("([^/]+)$")
+end
+
+local actived_venv = function()
+  local venv_name = require('venv-selector').python()
+  if venv_name ~= nil then
+    return "  " .. shorter_name(venv_name)
+  else
+    return ''
+  end
+end
+
+print(actived_venv())
+
 return {
   {
     "nvim-lualine/lualine.nvim",
@@ -41,6 +57,7 @@ return {
         lualine_x = {
           { "fancy_macro", icon = { " ", color = "WarningMsg" } },
           { "fancy_searchcount", icon = { " ", color = { fg = "#FCBA03" } } },
+          { actived_venv },
         },
         lualine_y = {
           { "encoding" },

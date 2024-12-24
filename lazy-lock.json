@@ -29,6 +29,7 @@
   "toggleterm.nvim": { "branch": "main", "commit": "022ff5594acccc8d90d2e46dc43994f7722ebdf7" },
   "tokyodark.nvim": { "branch": "master", "commit": "4da339984cf118d0d78f53cea955285d62e67a29" },
   "tokyonight.nvim": { "branch": "main", "commit": "45d22cf0e1b93476d3b6d362d720412b3d34465c" },
+  "venv-selector.nvim": { "branch": "regexp", "commit": "e82594274bf7b54387f9a2abe65f74909ac66e97" },
   "vim-moonfly-colors": { "branch": "master", "commit": "2e9b34d1b2b3b65a78679b8e7bd856cb769f28a8" },
   "vim-tmux-navigator": { "branch": "master", "commit": "424b5caa154bff34dc258ee53cec5a8e36cf7ea8" }
 }
