@@ -1,40 +1,54 @@
 local key = vim.keymap
 
+local function set_key(mode, lhs, rhs, opts)
+  local opts = vim.tbl_extend('force', { silent = true, noremap = true, }, opts or {})
+  vim.keymap.set(mode, lhs, rhs, opts)
+end
+
 -- Move current line up(K) or down(J)
-key.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
-key.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+set_key("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+set_key("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 -- Navigation
-key.set("n", "H", "<cmd>tabprevious<cr>", { desc = "Prev Tab" })
-key.set("n", "L", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+set_key("n", "H", "<cmd>tabprevious<cr>", { desc = "Prev Tab" })
+set_key("n", "L", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+set_key("n", "<Tab>", '<cmd>bnext<CR>', { desc = 'Next Buf' })
+set_key("n", "<S-Tab>", '<cmd>bprevious<CR>', { desc = 'Prev Buf' })
+set_key("n", "<BS>", '<cmd>b#<CR>', { desc = 'Prev Buf' })
 
 -- Place cursor always at the middle
-key.set("n", "<C-d>", "<C-d>zz")
-key.set("n", "<C-u>", "<C-u>zz")
-key.set("n", "n", "nzzzv")
-key.set("n", "N", "Nzzzv")
+set_key("n", "<C-d>", "<C-d>zz")
+set_key("n", "<C-u>", "<C-u>zz")
+set_key("n", "n", "nzzzv")
+set_key("n", "N", "Nzzzv")
 
 -- Resize window using <shift> arrow keys
-key.set('n', '<Up>', '<cmd>resize +2<CR>', { silent = true, noremap = true })
-key.set('n', '<Down>', '<cmd>resize -2<CR>', { silent = true, noremap = true })
-key.set('n', '<Left>', '<cmd>vertical resize -2<CR>', { silent = true, noremap = true })
-key.set('n', '<Right>', '<cmd>vertical resize +2<CR>', { silent = true, noremap = true })
+set_key('n', '<Up>', '<cmd>resize +2<CR>')
+set_key('n', '<Down>', '<cmd>resize -2<CR>')
+set_key('n', '<Left>', '<cmd>vertical resize -2<CR>')
+set_key('n', '<Right>', '<cmd>vertical resize +2<CR>')
 
 -- Clipboard
--- key.set("x", "<leader>p", [["_dP]], { desc = "Replace without overwriting" })
-key.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "SysClipboard" })
--- key.set({"n", "v"}, "<leader>d", [["_d]], { desc = "Delete without overwriting" })
+-- set_key("x", "<leader>p", [["_dP]], { desc = "Replace without overwriting" })
+set_key({ "n", "v" }, "<leader>y", [["+y]], { desc = "SysClipboard" })
+-- set_key({"n", "v"}, "<leader>d", [["_d]], { desc = "Delete without overwriting" })
 
 -- Exit insert mode
-key.set("i", "kj", "<ESC>", { desc = "Exit insert mode" })
-key.set("t", "KJ", "<C-\\><C-N>", { desc = "Exit insert mode" })
+set_key("i", "kj", "<ESC>", { desc = "Exit insert mode" })
+set_key("t", "KJ", "<C-\\><C-N>", { desc = "Exit insert mode" })
 
 -- Terminal
-key.set("t", "<C-h>", "<C-\\><C-N><C-w>h", { silent = true })
-key.set("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true })
-key.set("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true })
-key.set("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true })
+set_key("t", "<C-h>", "<C-\\><C-N><C-w>h")
+set_key("t", "<C-j>", "<C-\\><C-N><C-w>j")
+set_key("t", "<C-k>", "<C-\\><C-N><C-w>k")
+set_key("t", "<C-l>", "<C-\\><C-N><C-w>l")
 
 -- Navigate over quickfix list
-key.set('n', '<M-j>', '<cmd>cnext<CR>', { silent = true, noremap = true })
-key.set('n', '<M-k>', '<cmd>cprevious<CR>', { silent = true, noremap = true })
+set_key('n', '<M-j>', '<cmd>cnext<CR>')
+set_key('n', '<M-k>', '<cmd>cprevious<CR>')
+
+-- Close things
+set_key('n', '<space>cw', '<cmd>close<CR>', { desc = 'window' })
+set_key('n', '<space>cb', '<cmd>bdelete!<CR>', { desc = 'buffer' })
+set_key('n', '<space>ct', '<cmd>tabo<CR>', { desc = 'All Tabs' })
+set_key('n', '<space>cT', '<cmd>tabclose<CR>', { desc = 'Curr Tabs' })

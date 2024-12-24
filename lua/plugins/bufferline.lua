@@ -17,14 +17,7 @@ return {
         max_name_length = 30,
         max_prefix_length = 30,
         tab_size = 12,
-        diagnostics = "nvim_lsp",
-        diagnostics_update_in_insert = false,
-        diagnostics_indicator = function(_, _, diag, _)
-          return (diag.error and " " .. diag.error .. " " or "")
-              .. (diag.warning and " " .. diag.warning or "")
-              .. (diag.info and "" .. diag.info or "")
-              .. (diag.hint and "" .. diag.hint or "")
-        end,
+        diagnostics = false,
         show_buffer_icons = true,
         show_buffer_close_icons = true,
         show_close_icon = false,

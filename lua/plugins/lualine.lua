@@ -5,19 +5,17 @@ local function maximize_status()
 end
 
 local function shorter_name(filename)
-  return filename:gsub("/bin/python", ""):match("([^/]+)$")
+  return filename:match("([^/]+)$")
 end
 
 local actived_venv = function()
-  local venv_name = require('venv-selector').python()
+  local venv_name = pcall(require('venv-selector').venv())
   if venv_name ~= nil then
     return "  " .. shorter_name(venv_name)
   else
     return ''
   end
 end
-
-print(actived_venv())
 
 return {
   {

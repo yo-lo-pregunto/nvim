@@ -15,6 +15,7 @@ return {
     },
     { 'Bilal2453/luvit-meta', lazy = true },
   },
-  server = 'lua_ls',
+  server = { 'lua_ls' },
+  format = { 'stylua', },
   opts = {}
 }

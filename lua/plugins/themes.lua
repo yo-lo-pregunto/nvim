@@ -15,4 +15,6 @@ return add_themes({
   'projekt0n/github-nvim-theme',
   "bluz71/vim-moonfly-colors",
   'jacoborus/tender.vim',
+  "EdenEast/nightfox.nvim",
+  "rose-pine/neovim",
 })

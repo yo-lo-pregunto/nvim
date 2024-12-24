@@ -6,7 +6,7 @@ return {
         "neovim/nvim-lspconfig",
         "nvim-telescope/telescope.nvim",
       },
-      lazy = true,
+      lazy = false,
       branch = "regexp",
       config = function()
         -- This function gets called by the plugin when a new result from fd is received
@@ -39,7 +39,7 @@ return {
       },
     },
   },
-  server = 'pyright',
+  server = {'pyright' },
   opts = {
     capabilities = {
       workspace = {
