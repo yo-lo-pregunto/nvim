@@ -1,3 +1,5 @@
+-- Editor plugin
+
 return {
   {
     'stevearc/oil.nvim',

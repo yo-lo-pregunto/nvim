@@ -1,3 +1,5 @@
+-- Editor plugin
+
 return {
   {
     "akinsho/toggleterm.nvim",

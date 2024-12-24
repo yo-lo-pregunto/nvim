@@ -1,3 +1,5 @@
+-- ui plugin
+
 local function add_themes(themes)
   local t = {}
   for i, v in ipairs(themes) do

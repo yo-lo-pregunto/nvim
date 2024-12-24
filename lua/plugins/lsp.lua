@@ -1,3 +1,5 @@
+-- Editor plugin
+
 local langs = require 'langs'
 
 local function hover()

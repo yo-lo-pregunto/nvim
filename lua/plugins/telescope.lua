@@ -1,3 +1,5 @@
+-- Editor plugin
+
 return {
   {
     'nvim-telescope/telescope.nvim',

@@ -1,3 +1,5 @@
+-- Editor plugin
+
 return {
   {
     'saghen/blink.cmp',
