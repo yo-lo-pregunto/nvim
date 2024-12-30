@@ -4,7 +4,14 @@ return {
     ft = { 'markdown', 'quarto', 'latex', 'norg' },
     opts = {
       default = {
-        dir_path = 'img',
+        dir_path = function()
+          local img = 'img'
+          if vim.bo.filetype == 'norg' then
+            return os.getenv 'HOME' .. '/Neorg/' .. img
+          else
+            return img
+          end
+        end,
       },
       filetypes = {
         markdown = {
