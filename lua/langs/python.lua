@@ -6,7 +6,7 @@ return {
         'neovim/nvim-lspconfig',
         'nvim-telescope/telescope.nvim',
       },
-      lazy = false,
+      ft = { 'python', 'quarto', 'norg' },
       branch = 'regexp',
       config = function()
         -- This function gets called by the plugin when a new result from fd is received
@@ -34,9 +34,6 @@ return {
           },
         }
       end,
-      keys = {
-        { '<localleader>v', '<cmd>VenvSelect<cr>' },
-      },
     },
   },
   server = { 'pyright' },
@@ -48,5 +45,9 @@ return {
         },
       },
     },
+    root_dir = function(fname)
+      local util = require 'lspconfig.util'
+      return util.root_pattern('.git', 'setup.py', 'setup.cfg', 'pyproject.toml', 'requirements.txt')(fname) or vim.fs.dirname(fname)
+    end,
   },
 }

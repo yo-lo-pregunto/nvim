@@ -9,9 +9,13 @@ local function shorter_name(filename)
 end
 
 local actived_venv = function()
-  local venv_name = pcall(require('venv-selector').venv())
+  -- Lualine is not resposable of loading venv-selector
+  if package.loaded['venv-selector'] == nil then
+    return ''
+  end
+  local venv_name = require('venv-selector').venv()
   if venv_name ~= nil then
-    return '  ' .. shorter_name(venv_name)
+    return '  ' .. shorter_name(venv_name)
   else
     return ''
   end
@@ -31,7 +35,6 @@ return {
         theme = 'auto',
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
-        disabled_filetypes = { 'toggleterm' },
         globalstatus = true,
         always_divide_middle = false,
       },
@@ -62,6 +65,7 @@ return {
           { 'fileformat' },
           { 'filetype' },
           { 'fancy_lsp_servers', icon = { '', color = { fg = '#FFFF00' } } },
+          { actived_venv },
         },
         lualine_z = {
           { 'selectioncount' },
@@ -77,7 +81,7 @@ return {
         lualine_z = {},
       },
       tabline = {},
-      extensions = {},
+      extensions = { 'toggleterm' },
     },
   },
 }

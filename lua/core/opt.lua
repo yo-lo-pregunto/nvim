@@ -28,7 +28,7 @@ opt.inccommand = 'split' -- Show a quickfix list with live changes
 opt.background = 'dark' -- Colorschemes that can be light or dark will be set to dark
 opt.termguicolors = true -- Nee a true color terminal
 opt.signcolumn = 'yes' -- Show sign column so that text doesn't shift
-opt.conceallevel = 2 -- Latex require for fancy fonts
+opt.conceallevel = 0 -- Latex require for fancy fonts
 
 -- Scroll
 opt.scrolloff = 10 -- Have at leat 10 lines above or below the cursor
@@ -55,3 +55,4 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- NVIM in its own venv
 vim.g.python3_host_prog = vim.fn.expand '~/miniconda3/envs/neovim/bin/python3'
+vim.fn.setenv('PATH', '/Users/yo-lo-pregunto/miniconda3/envs/neovim/bin/' .. ':' .. vim.fn.getenv 'PATH')

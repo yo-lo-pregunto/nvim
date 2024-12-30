@@ -14,7 +14,7 @@ return {
         { '<leader>g', group = 'Git' },
         { '<leader>l', group = 'Lsp' },
         { '<leader>s', group = 'Search' },
-        { '<leader>c', group = 'Close' },
+        { '<leader>x', group = 'Exit' },
         { '<leader><space>', group = 'Debug' },
         -- { "<leader>h", group = "Harpoon" },
         -- { "<leader>n", group = "Node" },

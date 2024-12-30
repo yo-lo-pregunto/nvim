@@ -1,10 +1,4 @@
-local key = vim.keymap
-
-local function set_key(mode, lhs, rhs, opts)
-  local opts = vim.tbl_extend('force', { silent = true, noremap = true }, opts or {})
-  vim.keymap.set(mode, lhs, rhs, opts)
-end
-
+local set_key = require('core.utils').set_key
 -- Move current line up(K) or down(J)
 set_key('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move line down' })
 set_key('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move line up' })
@@ -30,7 +24,7 @@ set_key('n', '<Right>', '<cmd>vertical resize +2<CR>')
 
 -- Clipboard
 -- set_key("x", "<leader>p", [["_dP]], { desc = "Replace without overwriting" })
-set_key({ 'n', 'v' }, '<leader>y', [["+y]], { desc = 'SysClipboard' })
+set_key({ 'n', 'v' }, '<space>y', [["+y]], { desc = 'SysClipboard' })
 -- set_key({"n", "v"}, "<leader>d", [["_d]], { desc = "Delete without overwriting" })
 
 -- Exit insert mode
@@ -48,7 +42,10 @@ set_key('n', '<M-j>', '<cmd>cnext<CR>')
 set_key('n', '<M-k>', '<cmd>cprevious<CR>')
 
 -- Close things
-set_key('n', '<space>cw', '<cmd>close<CR>', { desc = 'window' })
-set_key('n', '<space>cb', '<cmd>bdelete!<CR>', { desc = 'buffer' })
-set_key('n', '<space>ct', '<cmd>tabo<CR>', { desc = 'All Tabs' })
-set_key('n', '<space>cT', '<cmd>tabclose<CR>', { desc = 'Curr Tabs' })
+set_key('n', '<space>xw', '<cmd>close<CR>', { desc = 'window' })
+set_key('n', '<space>xb', '<cmd>bdelete!<CR>', { desc = 'buffer' })
+set_key('n', '<space>xt', '<cmd>tabo<CR>', { desc = 'All Tabs' })
+set_key('n', '<space>xT', '<cmd>tabclose<CR>', { desc = 'Curr Tabs' })
+set_key('n', '<space>xx', '<cmd>quit<CR>', { desc = 'Curr Tabs' })
+
+set_key('n', '<space>w', '<cmd>write<CR>', { desc = 'Write' })

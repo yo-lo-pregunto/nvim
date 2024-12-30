@@ -8,6 +8,11 @@ return {
       shading_factor = 0,
       open_mapping = nil,
       on_create = function(term)
+        -- ToggleTerm is not resposable of loading venv-selector
+        if package.loaded['venv-selector'] == nil then
+          return
+        end
+
         local venv_path = require('venv-selector').venv()
 
         if venv_path == nil then

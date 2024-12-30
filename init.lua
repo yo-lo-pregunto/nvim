@@ -1,4 +1,2 @@
 require 'core'
-vim.cmd [[colorscheme moonfly]]
-
--- vim.fn.setenv("MY_VAR", "Jorge")
+vim.cmd [[colorscheme carbonfox]]

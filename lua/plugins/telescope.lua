@@ -123,7 +123,7 @@ return {
               cwd = vim.fs.joinpath(vim.fn.stdpath 'data', 'lazy'),
             }
           end,
-          desc = 'MultiGrep',
+          desc = 'Package',
         },
       }
     end,
