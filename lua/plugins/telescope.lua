@@ -7,6 +7,7 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
+      'nvim-telescope/telescope-ui-select.nvim',
     },
     config = function()
       local telescope = require 'telescope'
@@ -45,6 +46,7 @@ return {
         },
       }
       telescope.load_extension 'fzf'
+      telescope.load_extension 'ui-select'
     end,
     cmd = 'Telescope',
     keys = function()
