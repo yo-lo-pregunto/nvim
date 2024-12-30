@@ -83,9 +83,14 @@ local M = {
 
       require('mason-lspconfig').setup_handlers {
         function(name)
-          local ln = langs.servers[name] or {}
-          local opts = langs[ln].opts or {}
-          opts.capabilities = require('blink.cmp').get_lsp_capabilities(opts.capabilities or {})
+          local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+          local ln = langs.servers[name] or nil
+          local opts = ln and langs[ln].opts or { capabilities = {} }
+
+          opts.capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities(opts.capabilities))
+          -- opts.capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities(opts.capabilities))
+
           require('lspconfig')[name].setup(opts)
         end,
       }
