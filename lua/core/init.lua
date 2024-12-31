@@ -1,3 +1,4 @@
+require 'core.vars'
 require 'core.autocommands'
 require 'core.debug'
 require 'core.opt'

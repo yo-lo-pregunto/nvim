@@ -5,11 +5,10 @@ return {
     opts = {
       default = {
         dir_path = function()
-          local img = 'img'
           if vim.bo.filetype == 'norg' then
-            return os.getenv 'HOME' .. '/Neorg/' .. img
+            return vim.g.personal_options.neorg.dirs.images
           else
-            return img
+            return 'images'
           end
         end,
       },

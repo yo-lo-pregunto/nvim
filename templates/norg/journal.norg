@@ -1,0 +1,20 @@
+@document.meta
+title: {TEMP_TITLE}
+description: {INSERT}
+authors: {AUTHOR}
+categories: Journal
+created: {TODAY}
+updated: {TODAY}
+version: 1.1.1
+@end
+
+* {TEMP_TITLE}
+  Weather: {WEATHER}
+  {{:{YESTERDAY_OF_FILENAME}:}}[Yesterday] - {{:{TOMORROW_OF_FILENAME}:}}[Tomorrow]
+
+** Tickets
+*** {CURSOR}
+
+** Projects
+
+** Misc

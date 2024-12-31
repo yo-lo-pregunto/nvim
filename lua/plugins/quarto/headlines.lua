@@ -2,7 +2,7 @@ return {
   -- highlight markdown headings and code blocks etc.
   {
     'lukas-reineke/headlines.nvim',
-    ft = { 'quarto', 'markdown', 'norg' },
+    ft = { 'quarto', 'markdown' },
     dependencies = 'nvim-treesitter/nvim-treesitter',
     config = function()
       require('headlines').setup {
