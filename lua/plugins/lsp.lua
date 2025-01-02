@@ -78,7 +78,7 @@ local M = {
       }
 
       require('mason').setup()
-      require('mason-tool-installer').setup { ensure_installed = langs.ensure_installed }
+      require('mason-tool-installer').setup {}
       require('mason-lspconfig').setup()
 
       require('mason-lspconfig').setup_handlers {

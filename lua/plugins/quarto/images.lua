@@ -2,6 +2,7 @@ return {
   { -- paste an image from the clipboard or drag-and-drop
     'HakonHarnes/img-clip.nvim',
     ft = { 'markdown', 'quarto', 'latex', 'norg' },
+    cmd = 'PasteImage',
     opts = {
       default = {
         dir_path = function()
@@ -32,8 +33,7 @@ return {
   },
   {
     '3rd/image.nvim',
-    event = 'VeryLazy',
-    enabled = true,
+    ft = { 'norg', 'markdown' },
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
     },

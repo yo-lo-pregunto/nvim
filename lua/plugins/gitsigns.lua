@@ -2,6 +2,7 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     dependencies = { 'NeogitOrg/neogit' },
+    event = 'VeryLazy',
     opts = {
       signs = {
         add = { text = '▏' },
