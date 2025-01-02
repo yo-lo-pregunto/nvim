@@ -1,0 +1,129 @@
+From acd32107874428000e8b5ade0c63c5008408b488 Mon Sep 17 00:00:00 2001
+From: yo-lo-pregunto <junjo.mendoza11@gmail.com>
+Date: Thu, 2 Jan 2025 00:21:46 -0600
+Subject: [PATCH] Add status to the cell header
+
+Signed-off-by: yo-lo-pregunto <junjo.mendoza11@gmail.com>
+---
+ rplugin/python3/molten/moltenbuffer.py |  5 +++++
+ rplugin/python3/molten/options.py      |  4 ++++
+ rplugin/python3/molten/outputbuffer.py | 30 ++++++++++++++++++++++++++
+ 3 files changed, 39 insertions(+)
+
+diff --git a/rplugin/python3/molten/moltenbuffer.py b/rplugin/python3/molten/moltenbuffer.py
+index df20a32..b8de5c1 100644
+--- a/rplugin/python3/molten/moltenbuffer.py
++++ b/rplugin/python3/molten/moltenbuffer.py
+@@ -369,6 +369,11 @@ class MoltenKernel:
+         if self.selected_cell is not None:
+             self._show_selected(self.selected_cell)
+ 
++        if self.options.virt_status_on_header:
++            for span, output in self.outputs.items():
++                output.show_status_on_header(span.begin)
++
++
+         if self.options.virt_text_output:
+             for span, output in self.outputs.items():
+                 output.show_virtual_output(span.end)
+diff --git a/rplugin/python3/molten/options.py b/rplugin/python3/molten/options.py
+index 6baf5f8..32b977e 100644
+--- a/rplugin/python3/molten/options.py
++++ b/rplugin/python3/molten/options.py
+@@ -17,6 +17,7 @@ class HL:
+     foot = "MoltenOutputFooter"
+     cell = "MoltenCell"
+     virtual_text = "MoltenVirtualText"
++    virtual_status = "MoltenVirtualStatus"
+ 
+     defaults = {
+         border_norm: "FloatBorder",
+@@ -27,6 +28,7 @@ class HL:
+         foot: "FloatFooter",
+         cell: "CursorLine",
+         virtual_text: "Comment",
++        virtual_text: "Operator",
+     }
+ 
+ 
+@@ -62,6 +64,7 @@ class MoltenOptions:
+     virt_lines_off_by_1: bool
+     virt_text_max_lines: int
+     virt_text_output: bool
++    virt_status_on_header: bool
+     wrap_output: bool
+     nvim: Nvim
+     hl: HL
+@@ -103,6 +106,7 @@ class MoltenOptions:
+             ("molten_virt_text_max_lines", 12),
+             ("molten_virt_text_output", False),
+             ("molten_wrap_output", False),
++            ("molten_virt_status_on_header", False),
+         ]
+         # fmt: on
+ 
+diff --git a/rplugin/python3/molten/outputbuffer.py b/rplugin/python3/molten/outputbuffer.py
+index 42f0ac1..1693557 100644
+--- a/rplugin/python3/molten/outputbuffer.py
++++ b/rplugin/python3/molten/outputbuffer.py
+@@ -22,6 +22,7 @@ class OutputBuffer:
+     display_virt_lines: Optional[DynamicPosition]
+     extmark_namespace: int
+     virt_text_id: Optional[int]
++    virt_text_status_id: Optional[int]
+     displayed_status: OutputStatus
+ 
+     options: MoltenOptions
+@@ -38,6 +39,7 @@ class OutputBuffer:
+         self.display_virt_lines = None
+         self.extmark_namespace = extmark_namespace
+         self.virt_text_id = None
++        self.virt_text_status_id = None
+         self.displayed_status = OutputStatus.HOLD
+ 
+         self.options = options
+@@ -142,6 +144,9 @@ class OutputBuffer:
+     def clear_virt_output(self, bufnr: int) -> None:
+         if self.virt_text_id is not None:
+             self.nvim.funcs.nvim_buf_del_extmark(bufnr, self.extmark_namespace, self.virt_text_id)
++
++        if self.virt_text_status_id is not None:
++            self.nvim.funcs.nvim_buf_del_extmark(bufnr, self.extmark_namespace, self.virt_text_status_id)
+         # clear the image too
+         redraw = False
+         for chunk in self.output.chunks:
+@@ -202,6 +207,31 @@ class OutputBuffer:
+         lines.insert(0, self._get_header_text(self.output))
+         return lines, len(lines) - 1 + virtual_lines
+ 
++    def show_status_on_header(self, anchor: Position) -> None:
++        if self.displayed_status == OutputStatus.DONE and self.virt_text_status_id is not None:
++            return
++
++        buf = self.nvim.buffers[anchor.bufno]
++
++        if self.virt_text_status_id is not None:
++            self.nvim.funcs.nvim_buf_del_extmark(
++                anchor.bufno, self.extmark_namespace, self.virt_text_status_id
++            )
++            self.virt_text_status_id = None
++
++        text = f"-> {self._get_header_text(self.output)}"
++        self.virt_text_status_id = buf.api.set_extmark(
++            self.extmark_namespace,
++            anchor.lineno - 1,
++            0,
++            {
++                "virt_text": [[text, self.options.hl.virtual_status]],
++                "virt_text_pos": "eol",
++            }
++        )
++        self.canvas.present()
++
++
+     def show_virtual_output(self, anchor: Position) -> None:
+         if self.displayed_status == OutputStatus.DONE and self.virt_text_id is not None:
+             return
+-- 
+2.39.5 (Apple Git-154)
+
