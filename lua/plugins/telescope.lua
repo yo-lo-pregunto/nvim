@@ -47,6 +47,8 @@ return {
       }
       telescope.load_extension 'fzf'
       telescope.load_extension 'ui-select'
+
+      require('telescope.multigrep').setup()
     end,
     cmd = 'Telescope',
     keys = function()
@@ -60,6 +62,11 @@ return {
       end
 
       return {
+        {
+          '<leader>st',
+          b.builtin,
+          desc = 'Open Files',
+        },
         {
           '<leader>so',
           function()

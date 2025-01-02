@@ -7,7 +7,7 @@ return {
     dependencies = { 'rafamadriz/friendly-snippets', 'L3MON4D3/LuaSnip', version = 'v2.*' },
 
     version = '*',
-    event = 'InsertEnter',
+    event = { 'InsertEnter', 'CmdLineEnter' },
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
@@ -54,7 +54,6 @@ return {
       require('blink-cmp').setup(opts)
       local luasnip = require 'luasnip'
       require('luasnip.loaders.from_vscode').lazy_load()
-      -- link quarto and rmarkdown to markdown snippets
       luasnip.filetype_extend('quarto', { 'markdown' })
       luasnip.filetype_extend('rmarkdown', { 'markdown' })
     end,
