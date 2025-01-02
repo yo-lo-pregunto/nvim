@@ -25,7 +25,7 @@ return {
       end,
     },
     keys = {
-      { '<leader>t', '<cmd>ToggleTerm<cr>', desc = 'Terminal' },
+      { '<leader>f', '<cmd>ToggleTerm<cr>', desc = 'Terminal' },
     },
     cmd = 'ToggleTerm',
   },

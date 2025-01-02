@@ -4,7 +4,7 @@ return {
       'Civitasv/cmake-tools.nvim',
       dependencies = 'akinsho/toggleterm.nvim',
       opts = {
-        cmake_executor = { name = 'toggleterm' },
+        cmake_executor = { name = 'quickfix' },
         cmake_runner = { name = 'toggleterm' },
       },
       ft = { 'c', 'cpp', 'cmake' },
