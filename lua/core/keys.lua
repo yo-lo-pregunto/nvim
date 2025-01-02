@@ -38,8 +38,8 @@ set_key('t', '<C-k>', '<C-\\><C-N><C-w>k')
 set_key('t', '<C-l>', '<C-\\><C-N><C-w>l')
 
 -- Navigate over quickfix list
-set_key('n', '<M-j>', '<cmd>cnext<CR>')
-set_key('n', '<M-k>', '<cmd>cprevious<CR>')
+set_key('n', '<c-n>', '<cmd>cnext<CR>')
+set_key('n', '<c-p>', '<cmd>cprevious<CR>')
 
 -- Close things
 set_key('n', '<space>xw', '<cmd>close<CR>', { desc = 'window' })
@@ -48,5 +48,6 @@ set_key('n', '<space>xt', '<cmd>tabo<CR>', { desc = 'All Tabs' })
 set_key('n', '<space>xT', '<cmd>tabclose<CR>', { desc = 'Curr Tabs' })
 set_key('n', '<space>xx', '<cmd>quit<CR>', { desc = 'Quit' })
 set_key('n', '<space>xf', '<cmd>fclose<CR>', { desc = 'Quit Float Win' })
+set_key('n', '<space>xq', '<cmd>cclose<CR>', { desc = 'Close Quickfix' })
 
 set_key('n', '<space>w', '<cmd>write<CR>', { desc = 'Write' })
