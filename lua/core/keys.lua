@@ -46,6 +46,7 @@ set_key('n', '<space>xw', '<cmd>close<CR>', { desc = 'window' })
 set_key('n', '<space>xb', '<cmd>bdelete!<CR>', { desc = 'buffer' })
 set_key('n', '<space>xt', '<cmd>tabo<CR>', { desc = 'All Tabs' })
 set_key('n', '<space>xT', '<cmd>tabclose<CR>', { desc = 'Curr Tabs' })
-set_key('n', '<space>xx', '<cmd>quit<CR>', { desc = 'Curr Tabs' })
+set_key('n', '<space>xx', '<cmd>quit<CR>', { desc = 'Quit' })
+set_key('n', '<space>xf', '<cmd>fclose<CR>', { desc = 'Quit Float Win' })
 
 set_key('n', '<space>w', '<cmd>write<CR>', { desc = 'Write' })
