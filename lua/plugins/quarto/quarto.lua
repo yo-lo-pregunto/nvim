@@ -51,7 +51,7 @@ return {
     },
     dependencies = {
       'jmbuhr/otter.nvim',
-      'benlubas/molten-nvim',
+      'yo-lo-pregunto/molten-nvim',
     },
     config = function(_, opts)
       require('quarto').setup(opts)

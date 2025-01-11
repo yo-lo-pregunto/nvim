@@ -1,7 +1,7 @@
 return {
   {
-    'benlubas/molten-nvim',
-    version = '^1.0.0', -- use version <2.0.0 to avoid breaking changes
+    'yo-lo-pregunto/molten-nvim',
+    branch = 'status-to-header',
     dependencies = { '3rd/image.nvim' },
     build = ':UpdateRemotePlugins',
     init = function()
