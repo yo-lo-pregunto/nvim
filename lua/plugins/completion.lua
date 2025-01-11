@@ -22,33 +22,25 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'luasnip', 'buffer' },
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
       completion = {
         menu = { border = 'single' },
         documentation = { window = { border = 'single' }, auto_show = true, auto_show_delay_ms = 500 },
         ghost_text = { enabled = false },
         list = {
-          selection = function(ctx)
-            return ctx.mode == 'cmdline' and 'auto_insert' or 'preselect'
-          end,
+          selection = {
+            preselect = function(ctx)
+              return ctx.mode ~= 'cmdline' and not require('blink.cmp').snippet_active { direction = 1 }
+            end,
+            auto_insert = function(ctx)
+              return ctx.mode ~= 'cmdline'
+            end,
+          },
         },
       },
       signature = { enabled = true, window = { border = 'single' } },
-      snippets = {
-        expand = function(snippet)
-          require('luasnip').lsp_expand(snippet)
-        end,
-        active = function(filter)
-          if filter and filter.direction then
-            return require('luasnip').jumpable(filter.direction)
-          end
-          return require('luasnip').in_snippet()
-        end,
-        jump = function(direction)
-          require('luasnip').jump(direction)
-        end,
-      },
+      snippets = { preset = 'luasnip' },
     },
     config = function(_, opts)
       require('blink-cmp').setup(opts)

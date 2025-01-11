@@ -1,7 +1,7 @@
 return {
   plugins = {
     {
-      'Civitasv/cmake-tools.nvim',
+      "Civitasv/cmake-tools.nvim",
       dependencies = 'akinsho/toggleterm.nvim',
       opts = {
         cmake_executor = { name = 'quickfix' },

@@ -23,7 +23,7 @@ set_key('n', '<Left>', '<cmd>vertical resize -2<CR>')
 set_key('n', '<Right>', '<cmd>vertical resize +2<CR>')
 
 -- Clipboard
--- set_key("x", "<leader>p", [["_dP]], { desc = "Replace without overwriting" })
+set_key('x', '<leader>p', [["+dP]], { desc = 'SysClipboard' })
 set_key({ 'n', 'v' }, '<space>y', [["+y]], { desc = 'SysClipboard' })
 -- set_key({"n", "v"}, "<leader>d", [["_d]], { desc = "Delete without overwriting" })
 
