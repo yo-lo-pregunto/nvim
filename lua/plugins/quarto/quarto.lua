@@ -53,21 +53,19 @@ return {
       'jmbuhr/otter.nvim',
       'yo-lo-pregunto/molten-nvim',
     },
-    config = function(_, opts)
-      require('quarto').setup(opts)
-
-      set_local({ 'i', 'n' }, '<m-a>', insert_py_chunk, 'Insert Python chunk')
-      set_local('n', '<localleader>a', ':QuartoActivate<cr>', 'Activate')
-      set_local('n', '<localleader>p', ':QuartoPreview<cr>', 'Preview')
-      set_local('n', '<localleader>q', ':QuartoClosePreview<cr>', 'Close')
-      set_local('n', '<localleader>rs', ':QuartoSend<cr>', 'Send')
-      set_local('n', '<localleader>ra', ':QuartoSendAll<cr>', 'All')
-      set_local('n', '<localleader>rn', ':QuartoSendBelow<cr>', 'Next')
-      set_local('n', '<localleader>rp', ':QuartoSendAbove<cr>', 'Previous')
-      set_local('n', '<localleader>mi', ':MoltenInit<cr>', 'Init')
-      set_local('n', '<localleader>mo', ':noautocmd MoltenEnterOutput<CR>', 'show/enter output')
-      set_local('n', '<m-cr>', ':QuartoSend<cr>', 'Run Command')
-      set_local('i', '<m-cr>', '<ESC>:QuartoSend<cr>', 'Run Command')
-    end,
+    keys = {
+      { '<m-a>', insert_py_chunk, ft = 'quarto', desc = 'Insert Python chunk' },
+      { '<localleader>a', ':QuartoActivate<cr>', ft = 'quarto', desc = 'Activate' },
+      { '<localleader>p', ':QuartoPreview<cr>', ft = 'quarto', desc = 'Preview' },
+      { '<localleader>q', ':QuartoClosePreview<cr>', ft = 'quarto', desc = 'Close' },
+      { '<localleader>rs', ':QuartoSend<cr>', ft = 'quarto', desc = 'Send' },
+      { '<localleader>ra', ':QuartoSendAll<cr>', ft = 'quarto', desc = 'All' },
+      { '<localleader>rn', ':QuartoSendBelow<cr>', ft = 'quarto', desc = 'Next' },
+      { '<localleader>rp', ':QuartoSendAbove<cr>', ft = 'quarto', desc = 'Previous' },
+      { '<localleader>mi', ':MoltenInit<cr>', ft = 'quarto', desc = 'Init' },
+      { '<localleader>mo', ':noautocmd MoltenEnterOutput<CR>', ft = 'quarto', desc = 'show/enter output' },
+      { '<m-cr>', ':QuartoSend<cr>', ft = 'quarto', desc = 'Run Command' },
+      { '<m-cr>', '<ESC>:QuartoSend<cr>', ft = 'quarto', desc = 'Run Command' },
+    },
   },
 }

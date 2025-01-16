@@ -1,5 +1,5 @@
 local key_local = require('core.utils').set_local
-key_local('n', '<localleader>cg', '<cmd>CMakeGenerate<cr>', 'CMake Generate')
-key_local('n', '<localleader>cb', '<cmd>CMakeBuild<cr>', 'CMake Build')
-key_local('n', '<localleader>cr', '<cmd>CMakeRun<cr>', 'CMake Build')
-key_local('n', '<localleader>cc', '<cmd>CMakeClean<cr>', 'CMake Clean')
+key_local('n', '<localleader>g', '<cmd>CMakeGenerate<cr>', 'CMake Generate')
+key_local('n', '<localleader>b', '<cmd>CMakeBuild<cr>', 'CMake Build')
+key_local('n', '<localleader>r', '<cmd>CMakeRun<cr>', 'CMake Build')
+key_local('n', '<localleader>c', '<cmd>CMakeClean<cr>', 'CMake Clean')

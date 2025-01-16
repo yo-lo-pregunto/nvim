@@ -53,6 +53,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+local function get_langs_deps(l)
+  local d = {}
+  for _, t in pairs(l) do
+    table.insert(d, t.plugins or nil)
+  end
+  return d
+end
+
 local M = {
   { 'j-hui/fidget.nvim', opts = {} },
   {
@@ -62,6 +70,8 @@ local M = {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
+      'folke/neoconf.nvim',
+      get_langs_deps(langs),
     },
     config = function()
       vim.diagnostic.config {
@@ -77,9 +87,13 @@ local M = {
         },
       }
 
+      -- vim.print(langs.servers, langs.ensure_installed)
       require('mason').setup()
-      require('mason-tool-installer').setup {}
+      require('mason-tool-installer').setup {
+        ensure_installed = langs.ensure_installed,
+      }
       require('mason-lspconfig').setup()
+      require('neoconf').setup()
 
       require('mason-lspconfig').setup_handlers {
         function(name)
@@ -91,15 +105,15 @@ local M = {
           opts.capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities(opts.capabilities))
           -- opts.capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities(opts.capabilities))
 
+          if opts.settings and type(opts.settings) == 'function' then
+            opts.settings = opts.settings()
+          end
+
           require('lspconfig')[name].setup(opts)
         end,
       }
     end,
   },
 }
-
-for _, t in pairs(langs) do
-  table.insert(M, t.plugins or nil)
-end
 
 return M
