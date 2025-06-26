@@ -23,7 +23,6 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true
 opt.inccommand = 'split'
-opt.hlsearch = false
 
 -- Visual
 opt.termguicolors = true
