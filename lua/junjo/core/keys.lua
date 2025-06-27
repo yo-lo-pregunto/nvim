@@ -38,3 +38,52 @@ vim.keymap.set('t', '<C-l>', '<C-\\><C-N><C-w>l')
 
 -- Clear search highlights
 vim.keymap.set('n', '<C-c>', '<cmd>nohl<cr>', { desc = 'Clear search hl', silent = true })
+
+-- Tree Sitter Keymaps
+-- Keymap to Toggle Tree-sitter Highlight on current buffer
+vim.keymap.set('n', '<leader>ch', function()
+
+  local ft = vim.bo.filetype
+  local lang = vim.treesitter.language.get_lang(ft)
+
+  -- Check if there is any parser for the current buffer
+  if not vim.treesitter.language.add(lang) then
+    return
+  end
+
+  local bufnr = vim.api.nvim_get_current_buf()
+  local highlighter = vim.treesitter.highlighter
+
+  local is_active = highlighter.active[bufnr] ~= nil
+
+  if is_active then
+    vim.treesitter.stop(bufnr)
+    vim.notify('Tree-sitter disabled Highlight: ' .. bufnr)
+  else
+    vim.treesitter.start(bufnr, lang)
+    vim.notify('Tree-sitter enabled Highlight: ' .. bufnr)
+  end
+end, { desc = 'Toggle Tree-sitter highlight' })
+
+-- Keymap to Toggle Tree-sitter Fold on current buffer
+vim.keymap.set('n', '<leader>cf', function()
+  local win = vim.api.nvim_get_current_win()
+  local bufnr = vim.api.nvim_get_current_buf()
+
+  local win_state = vim.wo[win].foldmethod == 'expr'
+  local buf_state = vim.b[bufnr].folding_enabled or false
+
+  if win_state and buf_state then
+    vim.wo[win].foldmethod = 'manual'
+    vim.wo[win].foldexpr = ''
+    vim.b[bufnr].folding_enabled  = false -- For keep track
+    vim.cmd[[normal! zE]] -- Remove all folding on windows
+    vim.notify('Tree-sitter disabled Folding: ' .. win .. '/' .. bufnr)
+  else
+    vim.wo[win].foldenable = false
+    vim.wo[win].foldmethod = 'expr'
+    vim.wo[win].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.b[bufnr].folding_enabled  = true -- For keep track
+    vim.notify('Tree-sitter enabled Folding: ' .. win .. '/' .. bufnr)
+  end
+end, { desc = 'Toggle Tree-sitter folding' })

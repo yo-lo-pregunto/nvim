@@ -10,9 +10,13 @@ return {
     local ts = require'nvim-treesitter'
     local languages = { 'rust', 'c', 'lua', 'python', 'markdown' }
     ts.install(languages)
-    vim.api.nvim_create_autocmd('FileType', {
-      pattern = languages,
-      callback = function() vim.treesitter.start() end
-    })
+
+    vim.keymap.set('n', '<leader>cp', function()
+      local ft = vim.bo.filetype
+      local lang = vim.treesitter.language.get_lang(ft)
+
+      vim.notify('Installing Tree-sitter parser for ' .. lang)
+      ts.install(lang, { summary = true })
+    end, { desc = 'Install TS Parser' })
   end
 }
