@@ -1,4 +1,5 @@
 require('junjo.core.opts')
 require('junjo.core.keys')
 require('junjo.core.autocmds')
+require('junjo.core.lsp')
 require('junjo.core.lazy')
