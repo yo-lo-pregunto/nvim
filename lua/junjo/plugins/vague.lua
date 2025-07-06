@@ -3,7 +3,7 @@ return {
   lazy = false,
   priority = 1000,
   opts = {},
-  config = function(_, opts)
+  config = function()
     vim.cmd [[colorscheme vague]]
   end,
 }
