@@ -1,6 +1,7 @@
 return {
   {
     'lewis6991/gitsigns.nvim',
+    lazy = false,
     opts = {
       signs = {
         add          = { text = '┃' },
@@ -56,6 +57,22 @@ return {
           vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
         end
 
+        -- Navigation
+        map('n', ']c', function()
+          if vim.wo.diff then
+            vim.cmd.normal({']c', bang = true})
+          else
+            gs.nav_hunk('next')
+          end
+        end)
+
+        map('n', '[c', function()
+          if vim.wo.diff then
+            vim.cmd.normal({'[c', bang = true})
+          else
+            gs.nav_hunk('prev')
+          end
+        end)
         -- stylua: ignore start
         map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
         map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
@@ -66,6 +83,11 @@ return {
         map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "Blame Line")
         map("n", "<leader>gd", gs.diffthis, "Diff This")
         map("n", "<leader>gD", function() gs.diffthis("~") end, "Diff This ~")
+        map('n', '<leader>gb', function() Snacks.picker.git_branches() end, 'Branches')
+        map('n', '<leader>gl', function() Snacks.picker.git_log() end, 'Log')
+        map('n', '<leader>g/', function() Snacks.picker.git_grep() end, 'Grep')
+        map('n', '<leader>g;', function() Snacks.picker.git_status() end, 'Status')
+        map('n', '<leader>g.', function() Snacks.picker.git_stash() end, 'Stash')
       end,
 
     }
