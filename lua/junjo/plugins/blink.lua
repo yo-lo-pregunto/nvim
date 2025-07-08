@@ -15,7 +15,20 @@ return {
       nerd_font_variant = 'mono'
     },
 
-    completion = { documentation = { auto_show = true } },
+    completion = {
+      menu = { border = 'rounded', },
+      documentation = { auto_show = true, window = { border = 'rounded' } }
+    },
+
+    signature = {
+      enabled = true,
+      trigger = {
+        show_on_insert = true,
+      },
+      window = {
+        border = 'rounded'
+      }
+    },
 
     sources = {
       default = { "lazydev", "lsp", "path", "snippets", "buffer" },
@@ -23,7 +36,6 @@ return {
         lazydev = {
           name = "LazyDev",
           module = "lazydev.integrations.blink",
-          -- make lazydev completions top priority (see `:h blink.cmp`)
           score_offset = 100,
         },
       },
