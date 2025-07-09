@@ -12,12 +12,12 @@ return {
     keymap = { preset = 'default' },
 
     appearance = {
-      nerd_font_variant = 'mono'
+      nerd_font_variant = 'mono',
     },
 
     completion = {
-      menu = { border = 'rounded', },
-      documentation = { auto_show = true, window = { border = 'rounded' } }
+      menu = { border = 'rounded' },
+      documentation = { auto_show = true, window = { border = 'rounded' } },
     },
 
     signature = {
@@ -26,22 +26,22 @@ return {
         show_on_insert = true,
       },
       window = {
-        border = 'rounded'
-      }
+        border = 'rounded',
+      },
     },
 
     sources = {
-      default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+      default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
       providers = {
         lazydev = {
-          name = "LazyDev",
-          module = "lazydev.integrations.blink",
+          name = 'LazyDev',
+          module = 'lazydev.integrations.blink',
           score_offset = 100,
         },
       },
     },
 
-    fuzzy = { implementation = "prefer_rust_with_warning" }
+    fuzzy = { implementation = 'prefer_rust_with_warning' },
   },
-  opts_extend = { "sources.default" }
+  opts_extend = { 'sources.default' },
 }

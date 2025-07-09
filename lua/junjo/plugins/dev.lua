@@ -1,12 +1,12 @@
 return {
   {
-    "junjoza/query-driver.nvim",
+    'junjoza/query-driver.nvim',
   },
   {
-    "b0o/schemastore.nvim",
-    ft = 'json'
+    'b0o/schemastore.nvim',
+    ft = 'json',
   },
   {
-    'christoomey/vim-tmux-navigator'
-  }
+    'christoomey/vim-tmux-navigator',
+  },
 }

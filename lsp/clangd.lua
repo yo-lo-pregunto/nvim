@@ -24,7 +24,7 @@ local function switch_source_header(bufnr)
       error(tostring(err))
     end
     if not result then
-      vim.notify('corresponding file cannot be determined')
+      vim.notify 'corresponding file cannot be determined'
       return
     end
     vim.cmd.edit(vim.uri_to_fname(result))
@@ -60,7 +60,7 @@ end
 ---@class ClangdInitializeResult: lsp.InitializeResult
 ---@field offsetEncoding? string
 
-local query_driver = require'query-driver'
+local query_driver = require 'query-driver'
 
 return {
   cmd = {
@@ -71,7 +71,7 @@ return {
     '--completion-style=detailed',
     '--function-arg-placeholders',
     '--fallback-style=llvm',
-    query_driver.get_query_driver_flag()
+    query_driver.get_query_driver_flag(),
   },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
   root_markers = {

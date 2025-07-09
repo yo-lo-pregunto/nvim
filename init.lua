@@ -1,1 +1,1 @@
-require('junjo.core')
+require 'junjo.core'

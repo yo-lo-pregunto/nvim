@@ -4,28 +4,28 @@ return {
     lazy = false,
     opts = {
       signs = {
-        add          = { text = '┃' },
-        change       = { text = '┃' },
-        delete       = { text = '_' },
-        topdelete    = { text = '‾' },
+        add = { text = '┃' },
+        change = { text = '┃' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
         changedelete = { text = '~' },
-        untracked    = { text = '┆' },
+        untracked = { text = '┆' },
       },
       signs_staged = {
-        add          = { text = '┃' },
-        change       = { text = '┃' },
-        delete       = { text = '_' },
-        topdelete    = { text = '‾' },
+        add = { text = '┃' },
+        change = { text = '┃' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
         changedelete = { text = '~' },
-        untracked    = { text = '┆' },
+        untracked = { text = '┆' },
       },
       signs_staged_enable = true,
-      signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-      numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
-      linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
-      word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
+      signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
+      numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
+      linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
+      word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
       watch_gitdir = {
-        follow_files = true
+        follow_files = true,
       },
       auto_attach = true,
       attach_to_untracked = true,
@@ -48,7 +48,7 @@ return {
         style = 'minimal',
         relative = 'cursor',
         row = 0,
-        col = 1
+        col = 1,
       },
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
@@ -60,17 +60,17 @@ return {
         -- Navigation
         map('n', ']c', function()
           if vim.wo.diff then
-            vim.cmd.normal({']c', bang = true})
+            vim.cmd.normal { ']c', bang = true }
           else
-            gs.nav_hunk('next')
+            gs.nav_hunk 'next'
           end
         end)
 
         map('n', '[c', function()
           if vim.wo.diff then
-            vim.cmd.normal({'[c', bang = true})
+            vim.cmd.normal { '[c', bang = true }
           else
-            gs.nav_hunk('prev')
+            gs.nav_hunk 'prev'
           end
         end)
         -- stylua: ignore start
@@ -89,7 +89,6 @@ return {
         map('n', '<leader>g;', function() Snacks.picker.git_status() end, 'Status')
         map('n', '<leader>g.', function() Snacks.picker.git_stash() end, 'Stash')
       end,
-
-    }
-  }
+    },
+  },
 }

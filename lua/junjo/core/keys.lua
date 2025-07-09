@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Move current line up(K) or down(J)
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move line down' })
@@ -42,7 +42,6 @@ vim.keymap.set('n', '<C-c>', '<cmd>nohl<cr>', { desc = 'Clear search hl', silent
 -- Tree Sitter Keymaps
 -- Keymap to Toggle Tree-sitter Highlight on current buffer
 vim.keymap.set('n', '<leader>ch', function()
-
   local ft = vim.bo.filetype
   local lang = vim.treesitter.language.get_lang(ft)
 
@@ -76,14 +75,14 @@ vim.keymap.set('n', '<leader>cf', function()
   if win_state and buf_state then
     vim.wo[win].foldmethod = 'manual'
     vim.wo[win].foldexpr = ''
-    vim.b[bufnr].folding_enabled  = false -- For keep track
-    vim.cmd[[normal! zE]] -- Remove all folding on windows
+    vim.b[bufnr].folding_enabled = false -- For keep track
+    vim.cmd [[normal! zE]] -- Remove all folding on windows
     vim.notify('Tree-sitter disabled Folding: ' .. win .. '/' .. bufnr)
   else
     vim.wo[win].foldenable = false
     vim.wo[win].foldmethod = 'expr'
     vim.wo[win].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    vim.b[bufnr].folding_enabled  = true -- For keep track
+    vim.b[bufnr].folding_enabled = true -- For keep track
     vim.notify('Tree-sitter enabled Folding: ' .. win .. '/' .. bufnr)
   end
 end, { desc = 'Toggle Tree-sitter folding' })

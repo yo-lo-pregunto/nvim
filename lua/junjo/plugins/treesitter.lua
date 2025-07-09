@@ -4,10 +4,10 @@ return {
   branch = 'main',
   build = ':TSUpdate',
   opts = {
-    install_dir = vim.fn.stdpath('data') .. '/site',
+    install_dir = vim.fn.stdpath 'data' .. '/site',
   },
   config = function()
-    local ts = require'nvim-treesitter'
+    local ts = require 'nvim-treesitter'
     local languages = { 'rust', 'c', 'lua', 'python', 'markdown' }
     ts.install(languages)
 
@@ -18,5 +18,5 @@ return {
       vim.notify('Installing Tree-sitter parser for ' .. lang)
       ts.install(lang, { summary = true })
     end, { desc = 'Install TS Parser' })
-  end
+  end,
 }
