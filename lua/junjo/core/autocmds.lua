@@ -48,11 +48,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('n', 'gO', function()
       Snacks.picker.lsp_symbols()
     end, 'Implementation') -- update default -> QuickFix
-    map('n', 'cd', function()
+    map('n', '<leader>cd', function()
       vim.diagnostic.open_float { { border = 'rounded' } }
-    end, 'Implementation') -- update default -> QuickFix
+    end, 'Diagnostic') -- update default -> QuickFix
+    map('n', '<leader>cd', function()
+      vim.diagnostic.open_float { { border = 'rounded' } }
+    end, 'Diagnostic') -- update default -> QuickFix
+    map('n', '<leader>cD', function()
+      Snacks.picker.diagnostics()
+    end, 'Project Diagnostic') -- update default -> QuickFix
     map('n', 'K', function()
       vim.lsp.buf.hover { border = 'rounded', max_width = 80, max_height = 15 }
-    end, 'Implementation') -- update default -> QuickFix
+    end, 'Hover') -- update default -> QuickFix
   end,
 })
