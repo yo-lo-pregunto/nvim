@@ -1,13 +1,14 @@
 local opts = { noremap = true, silent = true }
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+-- Tabs Navigation
+vim.keymap.set('n', 'H', '<cmd>tabprevious<cr>', { desc = 'Prev Tab' })
+vim.keymap.set('n', 'L', '<cmd>tabnext<cr>', { desc = 'Next Tab' })
 
 -- Move current line up(K) or down(J)
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move line down' })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move line up' })
 
--- Indentention level
+-- Indentation level
 vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)
 
@@ -28,7 +29,7 @@ vim.keymap.set('i', 'kj', '<ESC>', { desc = 'Exit insert mode' })
 vim.keymap.set('t', 'KJ', '<C-\\><C-N>', { desc = 'Exit insert mode' })
 
 -- Clipboard
-vim.keymap.set({ 'n', 'v' }, '<space>y', [["+y]], { desc = 'SysClipboard' })
+vim.keymap.set({ 'n', 'v' }, '<space>y', [["+y]], { desc = 'SysCp' })
 
 -- Terminal
 vim.keymap.set('t', '<C-h>', '<C-\\><C-N><C-w>h')
@@ -39,33 +40,22 @@ vim.keymap.set('t', '<C-l>', '<C-\\><C-N><C-w>l')
 -- Clear search highlights
 vim.keymap.set('n', '<C-c>', '<cmd>nohl<cr>', { desc = 'Clear search hl', silent = true })
 
--- Tree Sitter Keymaps
--- Keymap to Toggle Tree-sitter Highlight on current buffer
-vim.keymap.set('n', '<leader>ch', function()
-  local ft = vim.bo.filetype
-  local lang = vim.treesitter.language.get_lang(ft)
+-- Windows creation
+vim.keymap.set('n', '<leader>-', '<C-W>s', { desc = 'Split Below', remap = true })
+vim.keymap.set('n', '<leader>|', '<C-W>v', { desc = 'Split Right', remap = true })
 
-  -- Check if there is any parser for the current buffer
-  if not vim.treesitter.language.add(lang) then
-    return
-  end
+------------------------
+-- Plugins Key maps
+-- Tree Sitter Key maps
+------------------------
 
-  local bufnr = vim.api.nvim_get_current_buf()
-  local highlighter = vim.treesitter.highlighter
+-- Snacks
+Snacks.toggle.treesitter():map '<leader>ch'
+Snacks.toggle.option('spell', { name = 'Spelling' }):map '<leader>cS'
+Snacks.toggle.option('relativenumber'):map '<leader>cn'
 
-  local is_active = highlighter.active[bufnr] ~= nil
-
-  if is_active then
-    vim.treesitter.stop(bufnr)
-    vim.notify('Tree-sitter disabled Highlight: ' .. bufnr)
-  else
-    vim.treesitter.start(bufnr, lang)
-    vim.notify('Tree-sitter enabled Highlight: ' .. bufnr)
-  end
-end, { desc = 'Toggle Tree-sitter highlight' })
-
--- Keymap to Toggle Tree-sitter Fold on current buffer
-vim.keymap.set('n', '<leader>cf', function()
+-- Key map to Toggle Tree-sitter Fold on current buffer
+vim.keymap.set('n', '<leader>cz', function()
   local win = vim.api.nvim_get_current_win()
   local bufnr = vim.api.nvim_get_current_buf()
 
@@ -85,4 +75,4 @@ vim.keymap.set('n', '<leader>cf', function()
     vim.b[bufnr].folding_enabled = true -- For keep track
     vim.notify('Tree-sitter enabled Folding: ' .. win .. '/' .. bufnr)
   end
-end, { desc = 'Toggle Tree-sitter folding' })
+end, { desc = 'Toggle folding' })

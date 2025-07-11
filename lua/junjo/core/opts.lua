@@ -37,3 +37,5 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.updatetime = 50
+
+opt.cursorline = true

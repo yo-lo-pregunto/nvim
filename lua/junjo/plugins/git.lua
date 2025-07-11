@@ -6,6 +6,9 @@ return {
       'sindrets/diffview.nvim',
       'folke/snacks.nvim',
     },
+    keys = {
+      { '<leader>gg', '<cmd>Neogit<cr>', desc = 'Status' },
+    },
   },
   {
     'lewis6991/gitsigns.nvim',

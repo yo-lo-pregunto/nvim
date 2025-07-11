@@ -8,6 +8,7 @@ return {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
     input = { enabled = true },
+    toggle = { enabled = true },
 
     --- @type snacks.picker.Config
     picker = {
@@ -94,6 +95,13 @@ return {
       end,
       mode = { 'n', 'x' },
       desc = 'Word',
+    },
+    {
+      'z=',
+      function()
+        Snacks.picker.spelling()
+      end,
+      desc = 'Spelling Suggestions',
     },
   },
 }

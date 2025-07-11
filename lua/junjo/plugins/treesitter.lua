@@ -11,7 +11,7 @@ return {
     local languages = { 'rust', 'c', 'lua', 'python', 'markdown' }
     ts.install(languages)
 
-    vim.keymap.set('n', '<leader>cp', function()
+    vim.keymap.set('n', '<leader>cI', function()
       local ft = vim.bo.filetype
       local lang = vim.treesitter.language.get_lang(ft)
 

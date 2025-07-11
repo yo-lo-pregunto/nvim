@@ -1,3 +1,7 @@
+-- Leader keys
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 -- Diagnostics
 vim.diagnostic.config {
   underline = true,
