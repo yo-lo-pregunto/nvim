@@ -7,7 +7,7 @@ vim.diagnostic.config {
   underline = false,
   virtual_text = false,
   virtual_lines = {
-    severity = vim.diagnostic.severity.ERROR,
+    severity = { vim.diagnostic.severity.ERROR, vim.diagnostic.severity.WARN },
     current_line = true,
   },
   severity_sort = true,
