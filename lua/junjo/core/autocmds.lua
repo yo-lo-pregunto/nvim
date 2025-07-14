@@ -97,6 +97,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.lsp.buf.hover { border = 'rounded', max_width = 80, max_height = 15 }
     end, 'Hover') -- update default -> QuickFix
 
+    map('n', '<leader>ca', function()
+      vim.lsp.buf.code_action()
+    end, 'Code Actions') -- update default -> QuickFix
+
     -- Highlight word under cursor
     local client = vim.lsp.get_client_by_id(event.data.client_id)
     if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
