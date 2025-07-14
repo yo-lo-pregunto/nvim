@@ -131,7 +131,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --
     -- This may be unwanted, since they displace some of your code
     if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-      Snacks.toggle.inlay_hints():map '<leader>ch'
+      Snacks.toggle.inlay_hints():map '<leader>cH'
     end
   end,
 })
