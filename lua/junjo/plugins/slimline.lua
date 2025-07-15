@@ -1,4 +1,18 @@
 -- Status Line
+
+local actived_venv = function()
+  -- Lualine is not resposable of loading venv-selector
+  if package.loaded['venv-selector'] == nil then
+    return ''
+  end
+  local venv_name = require('venv-selector').venv()
+  if venv_name ~= nil then
+    return '  ' .. vim.fn.fnamemodify(venv_name, ':t')
+  else
+    return ''
+  end
+end
+
 return {
   'sschleemilch/slimline.nvim',
   dependencies = {
@@ -6,6 +20,9 @@ return {
     { 'echasnovski/mini.icons', version = '*' },
   },
   opts = {
+    components = {
+      right = { actived_venv, 'diagnostics', 'filetype_lsp', 'progress' },
+    },
     style = 'fg',
     bold = true,
     hl = {
