@@ -19,6 +19,7 @@
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "quarto-nvim": { "branch": "main", "commit": "5325af3731ac9840b308791f08ad660958d76163" },
   "query-driver.nvim": { "branch": "main", "commit": "521730224adfe26d4b22e34ad06b2e5def81e8ec" },
+  "render-markdown.nvim": { "branch": "main", "commit": "b8c3d474d4da14fa1a5f9a0a18955c6e7db88f65" },
   "schemastore.nvim": { "branch": "main", "commit": "36fb914c0defa2274207e670182253508e5569d5" },
   "sequoia.nvim": { "branch": "master", "commit": "f6b933911f560f01effceb1b46dc926df274844c" },
   "slimline.nvim": { "branch": "main", "commit": "b7e03ea78c3fd87a452b7d12707440e901dea269" },
