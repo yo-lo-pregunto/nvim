@@ -5,6 +5,7 @@ return {
   opts = {
     preset = 'modern',
     spec = {
+      { '<leader>b', group = 'Buffer', icon = '' },
       { '<leader>c', group = 'Code', icon = '' },
       { '<leader>g', group = 'Git', icon = '' },
       { '<leader>s', group = 'Search', icon = '' },

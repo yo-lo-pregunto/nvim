@@ -53,6 +53,7 @@ vim.keymap.set('n', '<leader>|', '<C-W>v', { desc = 'Split Right', remap = true 
 Snacks.toggle.treesitter():map '<leader>ch'
 Snacks.toggle.option('spell', { name = 'Spelling' }):map '<leader>cS'
 Snacks.toggle.option('relativenumber'):map '<leader>cn'
+vim.keymap.set('n', '<leader>bd', Snacks.bufdelete.delete, { desc = 'Delete', remap = true })
 
 -- Key map to Toggle Tree-sitter Fold on current buffer
 vim.keymap.set('n', '<leader>cz', function()
