@@ -40,10 +40,6 @@ vim.keymap.set('t', '<C-l>', '<C-\\><C-N><C-w>l')
 -- Clear search highlights
 vim.keymap.set('n', '<C-c>', '<cmd>nohl<cr>', { desc = 'Clear search hl', silent = true })
 
--- Windows creation
-vim.keymap.set('n', '<leader>-', '<C-W>s', { desc = 'Split Below', remap = true })
-vim.keymap.set('n', '<leader>|', '<C-W>v', { desc = 'Split Right', remap = true })
-
 ------------------------
 -- Plugins Key maps
 -- Tree Sitter Key maps
