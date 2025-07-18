@@ -19,6 +19,7 @@ return {
     'lewis6991/gitsigns.nvim',
     { 'echasnovski/mini.icons', version = '*' },
   },
+  event = 'VeryLazy',
   opts = {
     components = {
       right = { actived_venv, 'diagnostics', 'filetype_lsp', 'progress' },

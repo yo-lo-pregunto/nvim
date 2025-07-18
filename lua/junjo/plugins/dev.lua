@@ -1,11 +1,11 @@
 return {
   { 'j-hui/fidget.nvim', opts = {} },
   {
-    'junjoza/query-driver.nvim',
+    'junjoza/query-driver.nvim', lazy = true,
   },
   {
     'b0o/schemastore.nvim',
-    ft = 'json',
+    lazy = true,
   },
   {
     'christoomey/vim-tmux-navigator',

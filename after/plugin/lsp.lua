@@ -1,5 +1,3 @@
-vim.lsp.config('*', require('blink.cmp').get_lsp_capabilities())
-
 --- Walk over all files in a directory and return file names without extension
 --- @param dir string: Absolute path to the folder (e.g., "/home/user/.config/nvim/lua/lsp")
 --- @return table: List of file names (no extension)

@@ -33,4 +33,9 @@ return {
       validate = { enable = true },
     },
   },
+  root_dir = function(bufnr, on_dir)
+    if vim.fn.bufname(bufnr):match '%.json' then
+      on_dir(vim.fn.getcwd())
+    end
+  end,
 }
