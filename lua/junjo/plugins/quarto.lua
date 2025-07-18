@@ -1,10 +1,13 @@
+local ft = { 'quarto' }
 return {
   {
     'jmbuhr/otter.nvim',
     opts = {},
+    lazy = true,
   },
   {
     'benlubas/molten-nvim',
+    ft = ft,
     version = '^1.0.0', -- use version <2.0.0 to avoid breaking changes
     build = ':UpdateRemotePlugins',
     init = function()
@@ -20,9 +23,8 @@ return {
       'jmbuhr/otter.nvim',
       'benlubas/molten-nvim',
     },
-    ft = { 'quarto' },
+    ft = ft,
     opts = {
-      debug = true,
       closePreviewOnExit = true,
       lspFeatures = {
         chunks = 'curly',
@@ -38,6 +40,15 @@ return {
         enabled = true,
         default_method = 'molten',
       },
+    },
+    keys = {
+      { '<localleader>qa', ':QuartoActivate<cr>', ft = ft, desc = 'Activate' },
+      { '<localleader>qp', ':QuartoPreview<cr>', ft = ft, desc = 'Preview' },
+      { '<localleader>qP', ':QuartoClosePreview<cr>', ft = ft, desc = 'Close' },
+      { '<m-cr>', '<ESC>:QuartoSend<cr>', mode = { 'n', 'i' }, ft = ft, desc = '' },
+      { '<localleader>qra', ':QuartoSendAll<cr>', ft = ft, desc = 'All' },
+      { '<localleader>qrn', ':QuartoSendBelow<cr>', ft = ft, desc = 'Next' },
+      { '<localleader>qrp', ':QuartoSendAbove<cr>', ft = ft, desc = 'Previous' },
     },
   },
 }
