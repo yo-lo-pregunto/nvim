@@ -19,6 +19,11 @@ return {
     'Pipfile',
     '.git',
   },
+  root_dir = function(bufnr, on_dir)
+    if not vim.fn.bufname(bufnr):match '%.otter.py$' then
+      on_dir(vim.fn.getcwd())
+    end
+  end,
   on_exit = function(code, _, _)
     vim.notify('Closing Pyrefly LSP exited with code: ' .. code, vim.log.levels.INFO)
   end,

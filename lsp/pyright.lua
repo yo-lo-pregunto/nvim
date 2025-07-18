@@ -65,4 +65,9 @@ return {
       },
     },
   },
+  root_dir = function(bufnr, on_dir)
+    if vim.fn.bufname(bufnr):match '%.otter.py$' then
+      on_dir(vim.fn.getcwd())
+    end
+  end,
 }
