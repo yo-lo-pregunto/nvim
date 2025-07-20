@@ -1,3 +1,5 @@
+local ft = vim.g.my_notes_fts
+
 return {
   'HakonHarnes/img-clip.nvim',
   ft = { 'markdown', 'quarto', 'latex', 'norg' },
@@ -19,5 +21,8 @@ return {
         },
       },
     },
+  },
+  keys = {
+    { '<localleader>p', '<cmd>PasteImage<cr>', ft = ft, desc = 'Paste Image' },
   },
 }

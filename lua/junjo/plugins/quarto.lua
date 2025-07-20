@@ -1,4 +1,4 @@
-local ft = { 'quarto', 'markdown' }
+local ft = vim.g.my_notes_fts
 
 return {
   {
@@ -46,7 +46,6 @@ return {
       { '<localleader>qa', ':QuartoActivate<cr>', ft = ft, desc = 'Activate' },
       { '<localleader>qp', ':QuartoPreview<cr>', ft = ft, desc = 'Preview' },
       { '<localleader>qP', ':QuartoClosePreview<cr>', ft = ft, desc = 'Close' },
-      { '<m-cr>', '<ESC>:QuartoSend<cr>', mode = { 'n', 'i' }, ft = ft, desc = '' },
       { '<localleader>qra', ':QuartoSendAll<cr>', ft = ft, desc = 'All' },
       { '<localleader>qrn', ':QuartoSendBelow<cr>', ft = ft, desc = 'Next' },
       { '<localleader>qrp', ':QuartoSendAbove<cr>', ft = ft, desc = 'Previous' },

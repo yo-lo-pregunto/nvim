@@ -1,24 +1,15 @@
-local is_code_chunk = function()
-  local current, _ = require('otter.keeper').get_current_language_context()
-  if current then
-    return true
-  else
-    return false
-  end
-end
-
-local ft = { 'quarto', 'markdown' }
+local ft = vim.g.my_notes_fts
 
 return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
-    ft = { 'markdown', 'quarto' },
+    ft = ft,
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {
       completions = { lsp = { enabled = true }, blink = { enabled = true } },
-      file_types = { 'markdown', 'quarto' },
+      file_types = ft,
       heading = {
         icons = { '█ ', '▆ ', '▅ ', '▄ ', '▃ ', '▂ ' },
         sign = false,
@@ -44,7 +35,7 @@ return {
   },
   {
     'jakewvincent/mkdnflow.nvim',
-    ft = { 'markdown', 'quarto' },
+    ft = ft,
     opts = {
       modules = {
         conceal = false,
@@ -52,8 +43,9 @@ return {
       filetypes = { qmd = true, quarto = true },
       perspective = { priority = 'root', root_tell = 'index.qmd', fallback = 'first' },
       links = {
+        conceal = false,
         implicit_extension = 'qmd',
-        transform_explicit = function(input)
+        transform_explicit = function(text)
           text = text:gsub(' ', '-')
           text = text:lower()
           return text
@@ -101,15 +93,5 @@ date-modified: today
         MkdnToggleToDo = false,
       },
     },
-    keys = {
-      { '<m-cr>', function() 
-        if is_code_chunk() then
-          print('juay')
-          vim.cmd[[QuartoSend]]
-        else
-          vim.cmd[[MkdnToggleToDo]]
-        end
-      end, mode = { 'n', 'v' }, ft = ft, desc = '' },
-    }
   },
 }
