@@ -1,4 +1,5 @@
-local ft = { 'quarto' }
+local ft = { 'quarto', 'markdown' }
+
 return {
   {
     'jmbuhr/otter.nvim',
