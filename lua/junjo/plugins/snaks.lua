@@ -24,6 +24,13 @@ return {
     },
     input = { enabled = true },
     toggle = { enabled = true },
+    styles = {
+      snacks_image = {
+        relative = 'editor',
+        col = -1,
+      },
+    },
+    image = { enabled = true, doc = { enabled = true, inline = false, flaot = true, max_width = 60, max_height = 30 } },
 
     --- @type snacks.picker.Config
     picker = {
