@@ -10,4 +10,10 @@ return {
   {
     'christoomey/vim-tmux-navigator',
   },
+  {
+    'echasnovski/mini.surround',
+    version = '*',
+    event = "ModeChanged *:[vV\x16]", -- load in visual / visual line or Visual block
+    opts = {}
+  },
 }
