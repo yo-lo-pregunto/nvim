@@ -46,10 +46,19 @@ return {
         conceal = false,
         implicit_extension = 'qmd',
         transform_explicit = function(text)
+          in_notebook = require'mkdnflow'.root_dir
           text = text:gsub(' ', '-')
           text = text:lower()
-          return text
+          return in_notebook and ('/' .. text) or text
         end,
+        transform_implicit = function(text)
+          in_notebook = require'mkdnflow'.root_dir
+          if in_notebook and string.sub(text, 1, 1) == '/' then
+            return string.sub(text, 2)
+          else
+            return text
+          end
+        end
       },
       new_file_template = {
         use_template = true,
@@ -66,7 +75,7 @@ date-modified: today
               return os.date '%A, %B %d, %Y' -- Wednesday, March 1, 2023
             end,
             author = function()
-              return 'junjoza'
+              return vim.fn.system('whoami'):sub(1, -2)
             end,
           },
           after = {
