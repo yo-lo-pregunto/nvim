@@ -4,6 +4,9 @@ local opt = vim.opt
 
 opt.number = true
 opt.relativenumber = true
+opt.textwidth = 100
+opt.colorcolumn = '100'
+
 
 -- Tabs & Indentation
 opt.smarttab = true
@@ -28,7 +31,7 @@ opt.inccommand = 'split'
 opt.termguicolors = true
 opt.background = 'dark'
 opt.signcolumn = 'yes'
-opt.scrolloff = 999
+opt.scrolloff = 8
 opt.wrap = false
 opt.virtualedit = 'block'
 
