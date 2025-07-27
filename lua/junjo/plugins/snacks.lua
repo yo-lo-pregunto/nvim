@@ -30,7 +30,16 @@ return {
         col = -1,
       },
     },
-    image = { enabled = true, doc = { enabled = true, inline = false, flaot = true, max_width = 60, max_height = 30 } },
+    image = {
+      enabled = true,
+      doc = {
+        enabled = true,
+        inline = vim.g.neovim_mode == 'notes' and true or false,
+        flaot = true,
+        max_width = vim.g.neovim_mode == 'notes' and 60 or 60,
+        max_height = vim.g.neovim_mode == 'notes' and 30 or 30,
+      },
+    },
 
     --- @type snacks.picker.Config
     picker = {
