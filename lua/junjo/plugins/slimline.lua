@@ -55,6 +55,9 @@ return {
           primary = 'String',
         },
       },
+      progress = {
+        column = true,
+      }
     },
   },
 }
