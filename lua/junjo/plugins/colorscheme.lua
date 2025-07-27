@@ -5,7 +5,9 @@ return {
     priority = 1000,
     opts = {},
     config = function()
-      vim.cmd [[colorscheme vague]]
+      if vim.g.neovim_mode == 'default' then
+        vim.cmd [[colorscheme vague]]
+      end
     end,
   },
   {
@@ -14,5 +16,15 @@ return {
     priority = 1000,
     opts = {},
   },
-  { 'ellisonleao/gruvbox.nvim', lazy = false, priority = 1000, opts = {} },
+  {
+    'ellisonleao/gruvbox.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      if vim.g.neovim_mode == 'notes' then
+        vim.cmd [[colorscheme gruvbox]]
+      end
+    end,
+  },
 }

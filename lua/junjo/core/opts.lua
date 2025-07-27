@@ -2,11 +2,18 @@ local opt = vim.opt
 
 -- Try :options to toggle the settings!
 
-opt.number = true
-opt.relativenumber = true
-opt.textwidth = 100
+if vim.g.neovim_mode == 'notes' then
+  opt.number = false
+  opt.relativenumber = false
+  opt.textwidth = 60
+  opt.signcolumn = 'no'
+else
+  opt.number = true
+  opt.relativenumber = true
+  opt.textwidth = 100
+  opt.signcolumn = 'yes'
+end
 opt.colorcolumn = '100'
-
 
 -- Tabs & Indentation
 opt.smarttab = true
@@ -30,7 +37,6 @@ opt.inccommand = 'split'
 -- Visual
 opt.termguicolors = true
 opt.background = 'dark'
-opt.signcolumn = 'yes'
 opt.scrolloff = 8
 opt.wrap = false
 opt.virtualedit = 'block'

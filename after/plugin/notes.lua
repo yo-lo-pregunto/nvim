@@ -39,6 +39,7 @@ end
 vim.api.nvim_create_autocmd('FileType', {
   pattern = ft,
   callback = function(ctx)
+    vim.cmd.setlocal 'spell'
     vim.keymap.set({ 'n', 'i' }, '<m-a>', insert_py_chunk, { buffer = ctx.buf, silent = true })
     vim.keymap.set('n', '<m-cr>', run_or_toggletodo, { buffer = ctx.buf, silent = true })
     vim.keymap.set('v', '<m-cr>', '<cmd>MkdnToggleToDo<cr>', { buffer = ctx.buf, silent = true })
