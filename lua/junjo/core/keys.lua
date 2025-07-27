@@ -71,5 +71,8 @@ vim.keymap.set('n', '<leader>cz', function()
     vim.wo[win].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
     vim.b[bufnr].folding_enabled = true -- For keep track
     vim.notify('Tree-sitter enabled Folding: ' .. win .. '/' .. bufnr)
+
+    -- Ensure proper initial folding (foldlevel=1 shows top-level folds)
+    vim.wo[win].foldlevel = 1
   end
 end, { desc = 'Toggle folding' })

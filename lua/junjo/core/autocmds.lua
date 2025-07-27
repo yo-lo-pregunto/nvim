@@ -57,6 +57,7 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.wo[win].foldmethod = 'expr'
     vim.wo[win].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
     vim.b[ctx.buf].folding_enabled = true -- For keep track
+    vim.wo[win].foldlevel = 1
   end,
 })
 
