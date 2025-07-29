@@ -2,6 +2,7 @@ return {
   {
     'vague2k/vague.nvim',
     lazy = false,
+    version = '*',
     priority = 1000,
     opts = {},
     config = function()
@@ -13,6 +14,7 @@ return {
   {
     'forest-nvim/sequoia.nvim',
     lazy = false,
+    version = '*',
     priority = 1000,
     opts = {},
   },

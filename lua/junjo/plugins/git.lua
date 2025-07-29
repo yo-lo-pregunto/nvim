@@ -13,6 +13,7 @@ return {
   },
   {
     'lewis6991/gitsigns.nvim',
+    version = '*',
     lazy = false,
     opts = {
       signs = {

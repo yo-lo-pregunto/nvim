@@ -15,6 +15,7 @@ end
 
 return {
   'sschleemilch/slimline.nvim',
+  version = '*',
   dependencies = {
     'lewis6991/gitsigns.nvim',
     { 'echasnovski/mini.icons', version = '*' },

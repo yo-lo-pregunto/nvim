@@ -3,6 +3,7 @@ local ft = vim.g.my_notes_fts
 return {
   {
     'jmbuhr/otter.nvim',
+    version = '*',
     opts = {},
     lazy = true,
   },
@@ -20,6 +21,7 @@ return {
   },
   {
     'quarto-dev/quarto-nvim',
+    version = '*',
     dependencies = {
       'jmbuhr/otter.nvim',
       'benlubas/molten-nvim',

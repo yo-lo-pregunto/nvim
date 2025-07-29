@@ -3,6 +3,7 @@ local ft = vim.g.my_notes_fts
 return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
+    version = '*',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
     ft = ft,
     ---@module 'render-markdown'
@@ -35,6 +36,7 @@ return {
   },
   {
     'jakewvincent/mkdnflow.nvim',
+    version = '*',
     ft = ft,
     opts = {
       modules = {

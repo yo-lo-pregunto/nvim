@@ -1,5 +1,5 @@
 return {
-  { 'j-hui/fidget.nvim', opts = {} },
+  { 'j-hui/fidget.nvim', version = '*', opts = {} },
   {
     'junjoza/query-driver.nvim', lazy = true,
   },
