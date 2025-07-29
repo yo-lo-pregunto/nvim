@@ -1,3 +1,5 @@
+local languages = { 'rust', 'c', 'lua', 'python', 'markdown', 'bash', 'quarto' }
+
 return {
   'nvim-treesitter/nvim-treesitter',
   lazy = false,
@@ -8,7 +10,7 @@ return {
   },
   config = function()
     local ts = require 'nvim-treesitter'
-    local languages = { 'rust', 'c', 'lua', 'python', 'markdown' }
+    local languages = languages,
     ts.install(languages)
 
     vim.keymap.set('n', '<leader>cI', function()
