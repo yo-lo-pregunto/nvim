@@ -1,7 +1,7 @@
 -- Enable Tree-sitter for the default languages
 -- From nvim v0.11.0 treesitter plugin just manage installing, updating, and
 -- removing parsers.
-local languages = { 'rust', 'c', 'lua', 'python', 'markdown', 'bash', 'quarto' }
+local languages = { 'rust', 'c', 'lua', 'python', 'markdown', 'bash', 'quarto', 'cpp', }
 
 -- Highlight when yanking text
 --  See `:help vim.hl.on_yank()`
