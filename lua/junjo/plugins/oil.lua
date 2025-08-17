@@ -5,7 +5,16 @@ return {
   ---@type oil.SetupOpts
   opts = {
     keymaps = {
-      ['q'] = { 'actions.close', mode = 'n' },
+      ['q'] = {
+        callback = function()
+          vim.schedule(function()
+            vim.cmd.write()
+            require('oil').close()
+          end)
+        end,
+        mode = 'n',
+        desc = 'Save and Close',
+      },
     },
     float = {
       max_height = 0.5,

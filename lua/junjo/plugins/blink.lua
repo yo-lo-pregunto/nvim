@@ -39,7 +39,7 @@ return {
     snippets = { preset = 'luasnip' },
 
     sources = {
-      default = { 'lazydev', 'lsp', 'avante', 'path', 'snippets', 'buffer' },
+      default = { 'lazydev', 'lsp', 'avante', 'snippets',  'path', 'buffer' },
       providers = {
         lazydev = {
           name = 'LazyDev',
@@ -49,7 +49,7 @@ return {
         avante = {
           module = 'blink-cmp-avante',
           name = 'Avante',
-        }
+        },
       },
     },
 
@@ -84,6 +84,23 @@ return {
         end,
         'select_next',
         'fallback_to_mappings',
+      },
+      ['<Tab>'] = {
+        function()
+          local session = require 'luasnip.session'
+          local node = session.active_choice_nodes[vim.api.nvim_get_current_buf()]
+
+          if node then
+            -- Llamamos a blink para movernos fuera del nodo
+            require('blink.cmp')['snippet_forward']()
+
+            return true
+          end
+
+          return nil
+        end,
+        'snippet_forward',
+        'fallback',
       },
     },
   },

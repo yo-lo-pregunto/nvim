@@ -1,5 +1,7 @@
 local opts = { noremap = true, silent = true }
 
+vim.keymap.set('n', '<leader>r', function() vim.cmd.cd(vim.g.root_cwd) end, { desc = 'Restore CWD'})
+
 -- Tabs Navigation
 vim.keymap.set('n', 'H', '<cmd>tabprevious<cr>', { desc = 'Prev Tab' })
 vim.keymap.set('n', 'L', '<cmd>tabnext<cr>', { desc = 'Next Tab' })

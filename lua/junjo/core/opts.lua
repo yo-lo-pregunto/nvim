@@ -47,4 +47,9 @@ opt.splitbelow = true
 
 opt.updatetime = 50
 
-opt.cursorline = true
+-- opt.cursorline = true
+-- vim.o.guicursor = "n-v-c:block-blinkon500,i-ci-ve:ver25,r-cr:hor20,o:hor50"
+vim.cmd [[
+		set guicursor=a:blink-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+		  \,sm:block-blinkwait175-blinkoff150-blinkon175
+]]

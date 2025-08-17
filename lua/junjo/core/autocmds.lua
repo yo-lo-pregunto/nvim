@@ -42,6 +42,20 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = vim.g.my_notes_fts,
+  callback = function ()
+    vim.opt_local.colorcolumn = ""
+  end
+})
+
+vim.api.nvim_create_autocmd('VimEnter', {
+  pattern = '*',
+  callback = function ()
+    vim.g.root_cwd = vim.fn.getcwd()
+  end
+})
+
 -- Enable Tree-sitter Highlight and Folding
 vim.api.nvim_create_autocmd('FileType', {
   pattern = languages,
@@ -65,6 +79,9 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- ------------------------------------------------------------------------------------------------
+-- LSP
+-- ------------------------------------------------------------------------------------------------
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(event)
     local function map(mode, l, r, desc)
@@ -140,6 +157,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+
+-- ------------------------------------------------------------------------------------------------
+-- Snippets
+-- ------------------------------------------------------------------------------------------------
 
 local current_nsid = vim.api.nvim_create_namespace 'LuaSnipChoiceListSelections'
 local current_win = nil
