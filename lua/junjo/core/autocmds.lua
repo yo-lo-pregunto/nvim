@@ -1,7 +1,7 @@
 -- Enable Tree-sitter for the default languages
 -- From nvim v0.11.0 treesitter plugin just manage installing, updating, and
 -- removing parsers.
-local languages = { 'rust', 'c', 'lua', 'python', 'markdown', 'bash', 'quarto', 'cpp' }
+local languages = vim.g.my_languages
 
 -- Highlight when yanking text
 --  See `:help vim.hl.on_yank()`
@@ -44,16 +44,16 @@ vim.api.nvim_create_autocmd('FileType', {
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = vim.g.my_notes_fts,
-  callback = function ()
-    vim.opt_local.colorcolumn = ""
-  end
+  callback = function()
+    vim.opt_local.colorcolumn = ''
+  end,
 })
 
 vim.api.nvim_create_autocmd('VimEnter', {
   pattern = '*',
-  callback = function ()
+  callback = function()
     vim.g.root_cwd = vim.fn.getcwd()
-  end
+  end,
 })
 
 -- Enable Tree-sitter Highlight and Folding

@@ -10,6 +10,10 @@ return {
       { '<leader>c', group = 'Code', icon = '' },
       { '<leader>g', group = 'Git', icon = '' },
       { '<leader>s', group = 'Search', icon = '' },
+      { '<leader>t', group = 'textobject' },
+      { '<leader>ts', group = 'swap' },
+      { ']', group = 'Next', icon = '⏭︎ ' },
+      { '[', group = 'Prev', icon = '⏮︎ '},
     },
   },
   keys = {
