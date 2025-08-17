@@ -7,6 +7,7 @@ return {
 
   dependencies = {
     'L3MON4D3/LuaSnip',
+    'Kaiser-Yang/blink-cmp-avante',
   },
 
   version = '1.*',
@@ -38,13 +39,17 @@ return {
     snippets = { preset = 'luasnip' },
 
     sources = {
-      default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+      default = { 'lazydev', 'lsp', 'avante', 'path', 'snippets', 'buffer' },
       providers = {
         lazydev = {
           name = 'LazyDev',
           module = 'lazydev.integrations.blink',
           score_offset = 100,
         },
+        avante = {
+          module = 'blink-cmp-avante',
+          name = 'Avante',
+        }
       },
     },
 
@@ -57,7 +62,9 @@ return {
           if active_choice == nil then
             return nil
           end
-          vim.schedule(function () require('luasnip').change_choice(-1) end)
+          vim.schedule(function()
+            require('luasnip').change_choice(-1)
+          end)
           return true
         end,
         'select_prev',
@@ -70,7 +77,9 @@ return {
           if active_choice == nil then
             return nil
           end
-          vim.schedule(function () require('luasnip').change_choice(1) end)
+          vim.schedule(function()
+            require('luasnip').change_choice(1)
+          end)
           return true
         end,
         'select_next',

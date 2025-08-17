@@ -1,7 +1,7 @@
 -- Enable Tree-sitter for the default languages
 -- From nvim v0.11.0 treesitter plugin just manage installing, updating, and
 -- removing parsers.
-local languages = { 'rust', 'c', 'lua', 'python', 'markdown', 'bash', 'quarto', 'cpp', }
+local languages = { 'rust', 'c', 'lua', 'python', 'markdown', 'bash', 'quarto', 'cpp' }
 
 -- Highlight when yanking text
 --  See `:help vim.hl.on_yank()`
@@ -22,13 +22,17 @@ vim.api.nvim_create_autocmd('FileType', {
     'gitsigns-blame',
     'help',
     'qf',
+    'molten_output',
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     vim.schedule(function()
       vim.keymap.set('n', 'q', function()
         vim.cmd 'close'
-        pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+        local ft = vim.bo[event.buf].filetype
+        if ft ~= 'molten_output' then
+          pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+        end
       end, {
         buffer = event.buf,
         silent = true,

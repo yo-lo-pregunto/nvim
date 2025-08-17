@@ -5,7 +5,7 @@ return {
     'MeanderingProgrammer/render-markdown.nvim',
     version = '*',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
-    ft = ft,
+    ft = vim.list_extend({ 'Avante' }, ft),
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {

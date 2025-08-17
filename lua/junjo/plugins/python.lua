@@ -16,6 +16,7 @@ return {
         on_telescope_result_callback = shorter_name,
         activate_venv_in_terminal = true,
         notify_user_on_venv_activation = true,
+        enable_default_seraches = true,
         on_venv_activate_callback = function()
           local command_run = false
 
@@ -44,6 +45,12 @@ return {
         miniconda_envs = {
           command = "$FD 'python$' ~/miniconda3/envs/*/bin --full-path --color never --exclude ipython",
           type = 'anaconda',
+        },
+        cwd = {
+          command = "$FD '/bin/python$' $CWD --full-path --color never -HI -a -L -E /proc -E .git/ -E .wine/ -E .steam/ -E Steam/ -E site-packages/",
+        },
+        workspace = {
+          command = "$FD '/bin/python$' $WORKSPACE_PATH --full-path --color never -E /proc -HI -a -L",
         },
       },
     },
