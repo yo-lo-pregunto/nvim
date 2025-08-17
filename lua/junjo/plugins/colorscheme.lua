@@ -29,4 +29,17 @@ return {
       end
     end,
   },
+  {
+    'olimorris/onedarkpro.nvim',
+    lazy = false,
+    opts = {},
+    priority = 1000, -- Ensure it loads first
+  },
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 }
