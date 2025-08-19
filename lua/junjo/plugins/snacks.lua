@@ -32,7 +32,7 @@ return {
       },
     },
     image = {
-      enabled = true,
+      enabled = require('junjo.core.utils').get_os() == 'macos',
       doc = {
         enabled = true,
         inline = vim.g.neovim_mode == 'notes' and true or false,
