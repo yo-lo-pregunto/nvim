@@ -16,7 +16,7 @@ return {
       vim.g.molten_image_provider = 'none'
       vim.g.molten_output_win_max_height = 12
       vim.g.molten_auto_open_output = true
-      vim.g.molten_wrap_output = true
+      vim.g.molten_wrap_output = false
       vim.g.molten_virt_status_on_header = true
       vim.g.molten_enter_output_behavior = "open_and_enter"
       vim.g.molten_output_show_more = true
