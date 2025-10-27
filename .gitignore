@@ -1,0 +1,3 @@
+.crush/
+*.log
+.DS_Store
