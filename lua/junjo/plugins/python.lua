@@ -5,7 +5,6 @@ end
 return {
   {
     'linux-cultist/venv-selector.nvim',
-    branch = 'regexp', -- This is the regexp branch, use this for the new version
     ft = { 'python', 'quarto' },
     keys = {
       { '<leader>cv', '<cmd>VenvSelect<cr>', desc = 'PyVenv', ft = { 'python', 'quarto' } },

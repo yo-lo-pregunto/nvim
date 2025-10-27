@@ -8,7 +8,6 @@ return {
       end,
       term = function(buf)
         vim.keymap.set('t', '<C-n>', require('floaterm.api').new_term, { buffer = buf })
-        vim.keymap.set('t', '<C-p>', require('floaterm.api').edit_name, { buffer = buf })
       end,
     },
   },

@@ -5,12 +5,12 @@ local opt = vim.opt
 if vim.g.neovim_mode == 'notes' then
   opt.number = false
   opt.relativenumber = false
-  opt.textwidth = 60
+  -- opt.textwidth = 60
   opt.signcolumn = 'no'
 else
   opt.number = true
   opt.relativenumber = true
-  opt.textwidth = 100
+  -- opt.textwidth = 100
   opt.signcolumn = 'yes'
 end
 opt.colorcolumn = '100'
@@ -47,7 +47,7 @@ opt.splitbelow = true
 
 opt.updatetime = 50
 
--- opt.cursorline = true
+opt.cursorline = true
 -- vim.o.guicursor = "n-v-c:block-blinkon500,i-ci-ve:ver25,r-cr:hor20,o:hor50"
 vim.cmd [[
 		set guicursor=a:blink-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
