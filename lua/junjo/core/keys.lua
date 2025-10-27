@@ -34,10 +34,10 @@ vim.keymap.set('t', 'KJ', '<C-\\><C-N>', { desc = 'Exit insert mode' })
 vim.keymap.set({ 'n', 'v' }, '<space>y', [["+y]], { desc = 'SysCp' })
 
 -- Terminal
-vim.keymap.set('t', '<C-h>', '<C-\\><C-N><C-w>h')
-vim.keymap.set('t', '<C-j>', '<C-\\><C-N><C-w>j')
-vim.keymap.set('t', '<C-k>', '<C-\\><C-N><C-w>k')
-vim.keymap.set('t', '<C-l>', '<C-\\><C-N><C-w>l')
+vim.keymap.set({'t', 'i' }, '<C-h>', '<C-\\><C-N><C-w>h')
+vim.keymap.set({'t', 'i' }, '<C-j>', '<C-\\><C-N><C-w>j')
+vim.keymap.set({'t', 'i' }, '<C-k>', '<C-\\><C-N><C-w>k')
+vim.keymap.set({'t', 'i' }, '<C-l>', '<C-\\><C-N><C-w>l')
 
 -- Clear search highlights
 vim.keymap.set('n', '<C-c>', '<cmd>nohl<cr>', { desc = 'Clear search hl', silent = true })
