@@ -1,11 +1,11 @@
-local ft = vim.g.my_notes_fts
+local ft = vim.list_extend({'Avante' }, vim.g.my_notes_fts)
 
 return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
     version = '*',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
-    ft = vim.list_extend({ 'Avante' }, ft),
+    ft = ft,
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {

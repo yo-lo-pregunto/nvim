@@ -5,6 +5,8 @@ vim.keymap.set('n', '<leader>r', function() vim.cmd.cd(vim.g.root_cwd) end, { de
 -- Tabs Navigation
 vim.keymap.set('n', 'H', '<cmd>tabprevious<cr>', { desc = 'Prev Tab' })
 vim.keymap.set('n', 'L', '<cmd>tabnext<cr>', { desc = 'Next Tab' })
+vim.keymap.set('n', '<leader>w', '<cmd>write<cr>', { desc = 'Next Tab' })
+vim.keymap.set('n', '<leader>q', '<cmd>quite<cr>', { desc = 'Next Tab' })
 
 -- Move current line up(K) or down(J)
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move line down' })

@@ -10,11 +10,6 @@ return {
   ---@type avante.Config
   opts = {
     provider = 'claude',
-    providers = {
-      claude = {
-        model = 'claude-haiku-4-5-20251001',
-      },
-    },
     input = {
       provider = 'snacks',
       provider_opts = {
